@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Data - Rosehill Drainage System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background: #ff6b35;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #e55a2b !important;
+            transform: translateY(-2px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(45, 74, 113, 0.7)), 
+                        url('drainage_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 120px 0 60px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.2;
+        }
+
+        .page-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Navigation */
+        .section-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 90px;
+            z-index: 100;
+            margin-bottom: 60px;
+        }
+
+        .section-nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .section-nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #1a365d;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .section-nav a:hover,
+        .section-nav a.active {
+            color: #ff6b35;
+            border-bottom-color: #ff6b35;
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        /* Section Styles */
+        .tech-section {
+            padding: 80px 0;
+            scroll-margin-top: 200px;
+        }
+
+        .tech-section:nth-child(odd) {
+            background: white;
+        }
+
+        .tech-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Product Cards */
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-section:nth-child(even) .product-card {
+            background: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-card h3 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .product-card-description {
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Technical Data Tables */
+        .tech-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-section:nth-child(even) .tech-table {
+            background: white;
+        }
+
+        .tech-table h4 {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 20px 30px;
+            margin: 0;
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .tech-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 15px 30px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tech-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tech-table tr:hover {
+            background: rgba(255, 107, 53, 0.02);
+        }
+
+        /* System Drawings */
+        .drawings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .drawing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .tech-section:nth-child(even) .drawing-card {
+            background: white;
+        }
+
+        .drawing-card h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .drawing-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .drawing-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .drawing-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* Performance Data Highlights */
+        .performance-highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #ff6b35, #e55a2b);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .highlight-value {
+            font-family: 'Overpass', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .highlight-label {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .highlight-description {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Testing Standards */
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .standard-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-section:nth-child(even) .standard-card {
+            background: white;
+        }
+
+        .standard-card:hover {
+            border-color: #ff6b35;
+            transform: translateY(-5px);
+        }
+
+        .standard-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: #ff6b35;
+        }
+
+        .standard-card h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .standard-card p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .download-card h4 {
+            font-family: 'Overpass', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .download-card p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .btn-download {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .drawings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .section-nav-inner {
+                gap: 10px;
+            }
+            
+            .section-nav a {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .performance-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-table th,
+            .tech-table td {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-nav-inner {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .section-nav a {
+                border-bottom: 1px solid #e9ecef;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="technical.html" class="active">Technical</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-nav-menu" id="mobile-menu">
+                    <a href="index.html">Home</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="sustainability.html">Sustainability</a>
+                    <a href="technical.html" class="active">Technical</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="contact-btn">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Technical Data</h1>
+            <p>Comprehensive specifications and performance data for drainage professionals</p>
+        </div>
+    </section>
+
+    <!-- Section Navigation -->
+    <nav class="section-nav">
+        <div class="section-nav-inner">
+            <a href="#overview" class="active">Overview</a>
+            <a href="#trough-stacker">Trough & Stacker</a>
+            <a href="#drainage-mats">Drainage Mats</a>
+            <a href="#system-drawings">System Drawings</a>
+            <a href="#testing">Testing & Standards</a>
+            <a href="#downloads">Downloads</a>
+        </div>
+    </nav>
+
+    <!-- Overview Section -->
+    <section id="overview" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">System Overview</h2>
+            <p class="section-subtitle">High-performance modular drainage systems engineered from 100% recycled materials</p>
+            
+            <div class="performance-highlights">
+                <div class="highlight-card">
+                    <span class="highlight-value">176.4</span>
+                    <span class="highlight-label">m/hr</span>
+                    <p class="highlight-description">Vertical hydraulic conductivity</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="highlight-value">93%</span>
+                    <span class="highlight-label">Less CO₂</span>
+                    <p class="highlight-description">vs concrete systems</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="highlight-value">60+</span>
+                    <span class="highlight-label">Years</span>
+                    <p class="highlight-description">Design life expectancy</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="highlight-value">100%</span>
+                    <span class="highlight-label">Recycled</span>
+                    <p class="highlight-description">Material composition</p>
+                </div>
+            </div>
+
+            <div class="product-cards">
+                <div class="product-card">
+                    <h3>Trough & Stacker System</h3>
+                    <p class="product-card-description">Two-component system: Trough units (A or B) sit on the drainage ditch floor to channel water, while Stacker units placed on top filter water down into the trough below. Water then flows through the trough to connected catch pits.</p>
+                    <div class="tech-table">
+                        <h4>Key Performance Metrics</h4>
+                        <table>
+                            <tr>
+                                <td>Flow Rate</td>
+                                <td><strong>679.5 L/min per metre</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Load Capacity</td>
+                                <td><strong>506,000+ cycles tested</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Storage Capacity</td>
+                                <td><strong>180 L/m³ void ratio</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <h3>Drainage Mats</h3>
+                    <p class="product-card-description">Ultra-lightweight surface drainage solution for rapid deployment. Perfect for verges, embankments, sports fields, and distributed drainage applications.</p>
+                    <div class="tech-table">
+                        <h4>Key Performance Metrics</h4>
+                        <table>
+                            <tr>
+                                <td>Permeability</td>
+                                <td><strong>49 L/m²/s</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td><strong>44 kg/m² (50mm)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Compressive Strength</td>
+                                <td><strong>250 kPa</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trough & Stacker Technical Section -->
+    <section id="trough-stacker" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Trough & Stacker System</h2>
+            <p class="section-subtitle">Two-component drainage system: Trough channels water along the ditch floor, Stackers filter water from above</p>
+            
+            <div class="tech-table">
+                <h4>Stacker Unit Specifications</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Length</th>
+                            <th>Weight</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>505mm</td>
+                            <td>16.9 kg</td>
+                            <td>Filters water down to trough</td>
+                        </tr>
+                        <tr>
+                            <td>1005mm</td>
+                            <td>33.6 kg</td>
+                            <td>Filters water down to trough</td>
+                        </tr>
+                        <tr>
+                            <td>2010mm</td>
+                            <td>67.2 kg</td>
+                            <td>Filters water down to trough</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tech-table">
+                <h4>Trough A Specifications</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Length</th>
+                            <th>Weight</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1005mm</td>
+                            <td>18.9 kg</td>
+                            <td>Channels water to catch pit</td>
+                        </tr>
+                        <tr>
+                            <td>2010mm</td>
+                            <td>37.7 kg</td>
+                            <td>Channels water to catch pit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tech-table">
+                <h4>Trough B Specifications</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Length</th>
+                            <th>Weight</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1005mm</td>
+                            <td>33 kg</td>
+                            <td>Enhanced capacity water channel</td>
+                        </tr>
+                        <tr>
+                            <td>2010mm</td>
+                            <td>66 kg</td>
+                            <td>Enhanced capacity water channel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tech-table">
+                <h4>System Properties</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Material Composition</td>
+                            <td>100% Recycled Rubber</td>
+                            <td>Both trough and stacker</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Temperature</td>
+                            <td>-40°C to +80°C</td>
+                            <td>All components</td>
+                        </tr>
+                        <tr>
+                            <td>Void Ratio (Stacker)</td>
+                            <td>30-40%</td>
+                            <td>Allows water filtration</td>
+                        </tr>
+                        <tr>
+                            <td>System Configuration</td>
+                            <td>Stacker on top of Trough</td>
+                            <td>Water flows: Stacker → Trough → Catch pit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tech-table">
+                <h4>Hydraulic Performance</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Test Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vertical Hydraulic Conductivity</td>
+                            <td>176.4 m/hr</td>
+                            <td>UKAS Accredited</td>
+                        </tr>
+                        <tr>
+                            <td>Flow Rate (Linear)</td>
+                            <td>679.5 L/min per metre</td>
+                            <td>Independent Testing</td>
+                        </tr>
+                        <tr>
+                            <td>Discharge Coefficient</td>
+                            <td>0.91</td>
+                            <td>Hydraulic Analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Capacity</td>
+                            <td>180 L/m³</td>
+                            <td>Volumetric Analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum System Depth</td>
+                            <td>Unlimited (stackable)</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Filtration Capability</td>
+                            <td>Removes particulates >2mm</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tech-table">
+                <h4>Structural Performance</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Compressive Strength</td>
+                            <td>2.5 MPa</td>
+                            <td>BS EN 12390-3</td>
+                        </tr>
+                        <tr>
+                            <td>Fatigue Resistance</td>
+                            <td>506,000+ cycles</td>
+                            <td>BS EN 1991-2</td>
+                        </tr>
+                        <tr>
+                            <td>Creep Deformation</td>
+                            <td>&lt;2% over 50 years</td>
+                            <td>Long-term testing</td>
+                        </tr>
+                        <tr>
+                            <td>Freeze-Thaw Resistance</td>
+                            <td>100+ cycles</td>
+                            <td>BS EN 12390-9</td>
+                        </tr>
+                        <tr>
+                            <td>Chemical Resistance</td>
+                            <td>Oils, salts, acids</td>
+                            <td>BS EN 13529</td>
+                        </tr>
+                        <tr>
+                            <td>UV Stability</td>
+                            <td>50+ years</td>
+                            <td>Accelerated testing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drainage Mats Technical Section -->
+    <section id="drainage-mats" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Drainage Mats</h2>
+            <p class="section-subtitle">Comprehensive specifications for surface drainage applications</p>
+            
+            <div class="tech-table">
+                <h4>Physical Properties</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Standard Sheet Size</td>
+                            <td>1m × 1m</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Thickness Options</td>
+                            <td>50, 75, 100 mm</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Weight (50mm)</td>
+                            <td>44 kg/m²</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Weight (75mm)</td>
+                            <td>65 kg/m²</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Weight (100mm)</td>
+                            <td>88 kg/m²</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Density</td>
+                            <td>150-200 kg/m³</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Material Composition</td>
+                            <td>90% Recycled Rubber</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Service Temperature</td>
+                            <td>-40°C to +80°C</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tech-table">
+                <h4>Hydraulic Performance</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Test Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vertical Permeability</td>
+                            <td>49 L/m²/s</td>
+                            <td>UKAS Accredited</td>
+                        </tr>
+                        <tr>
+                            <td>Horizontal Flow Rate</td>
+                            <td>15 L/m/s</td>
+                            <td>Laboratory Testing</td>
+                        </tr>
+                        <tr>
+                            <td>Water Retention</td>
+                            <td>Minimal (&lt;5%)</td>
+                            <td>Drainage Testing</td>
+                        </tr>
+                        <tr>
+                            <td>Filtration Efficiency</td>
+                            <td>Removes particles >1mm</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Clogging Resistance</td>
+                            <td>Self-cleaning structure</td>
+                            <td>Long-term testing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tech-table">
+                <h4>Mechanical Properties</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Compressive Strength</td>
+                            <td>250 kPa</td>
+                            <td>BS EN 826</td>
+                        </tr>
+                        <tr>
+                            <td>Tensile Strength</td>
+                            <td>150 kPa</td>
+                            <td>BS EN 1607</td>
+                        </tr>
+                        <tr>
+                            <td>Deformation under Load</td>
+                            <td>&lt;10% at 50 kPa</td>
+                            <td>BS EN 1606</td>
+                        </tr>
+                        <tr>
+                            <td>Freeze-Thaw Resistance</td>
+                            <td>100+ cycles</td>
+                            <td>BS EN 12390-9</td>
+                        </tr>
+                        <tr>
+                            <td>UV Stability</td>
+                            <td>50+ years</td>
+                            <td>ASTM G154</td>
+                        </tr>
+                        <tr>
+                            <td>Load Distribution</td>
+                            <td>Excellent</td>
+                            <td>Field Testing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Drawings Section -->
+    <section id="system-drawings" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">System Drawings</h2>
+            <p class="section-subtitle">Technical drawings and configuration details</p>
+            
+            <div class="drawings-grid">
+                <div class="drawing-card">
+                    <h4>Trough A - Standard Configuration</h4>
+                    <img src="trough_a_drawing.png" alt="Trough A Technical Drawing" class="drawing-image">
+                    <p class="drawing-description">Standard trough unit dimensions and connection details. Base component for linear drainage systems.</p>
+                </div>
+
+                <div class="drawing-card">
+                    <h4>Trough B - Extended Configuration</h4>
+                    <img src="trough_b_drawing.png" alt="Trough B Technical Drawing" class="drawing-image">
+                    <p class="drawing-description">Extended trough configuration for increased capacity applications. Enhanced storage volume.</p>
+                </div>
+
+                <div class="drawing-card">
+                    <h4>Stacker System Assembly</h4>
+                    <img src="stacker_drawing.png" alt="Stacker System Technical Drawing" class="drawing-image">
+                    <p class="drawing-description">Stacker unit interlocking mechanism and vertical assembly configuration for unlimited depth.</p>
+                </div>
+
+                <div class="drawing-card">
+                    <h4>Drainage Mat Configuration</h4>
+                    <img src="drainagemat_drawing.png" alt="Drainage Mat Technical Drawing" class="drawing-image">
+                    <p class="drawing-description">Standard mat dimensions, thickness options, and installation overlap requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing & Standards Section -->
+    <section id="testing" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Testing & Standards</h2>
+            <p class="section-subtitle">Comprehensive testing and regulatory compliance</p>
+            
+            <div class="standards-grid">
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/check mark, tick symbol, approved, verify, confirm.svg" alt="Compliance" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>UKAS Accredited Testing</h4>
+                    <p>All hydraulic performance data validated through UKAS accredited laboratory testing to ensure accuracy and reliability.</p>
+                </div>
+
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Railroad, Model, Play, Kids, Journey.svg" alt="Rail Standards" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Network Rail Approved</h4>
+                    <p>Accepted under HA104/09 standard for trackside drainage applications on the UK rail network.</p>
+                </div>
+
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Road Sign,  road,  direction,  safety,  transport.svg" alt="Highway Standards" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>National Highways Compliant</h4>
+                    <p>Meets DMRB standards CD 529 and CD 530 for highway drainage systems and strategic road networks.</p>
+                </div>
+
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Thermometer, Temperature, Measurement, Chemistry.svg" alt="Temperature Standards" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Environmental Testing</h4>
+                    <p>Extensive freeze-thaw, UV exposure, and chemical resistance testing validates long-term performance.</p>
+                </div>
+
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Balance, Scale, Chemistry, Measurement, Laboratory.svg" alt="Load Standards" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Load Testing</h4>
+                    <p>Fatigue testing to 506,000+ cycles demonstrates exceptional durability under repeated loading.</p>
+                </div>
+
+                <div class="standard-card">
+                    <div class="standard-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Factory, Industrial, Manufacturing, Engineering, Production.svg" alt="Manufacturing Standards" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>ISO 9001:2015</h4>
+                    <p>Manufacturing quality management system certification ensures consistent product quality and performance.</p>
+                </div>
+            </div>
+
+            <div class="tech-table" style="margin-top: 80px;">
+                <h4>Testing Standards Reference</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Standard</th>
+                            <th>Application</th>
+                            <th>Parameter Tested</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BS EN 12390-3</td>
+                            <td>Compressive Strength</td>
+                            <td>Material strength under compression</td>
+                        </tr>
+                        <tr>
+                            <td>BS EN 12390-9</td>
+                            <td>Freeze-Thaw Resistance</td>
+                            <td>Durability under thermal cycling</td>
+                        </tr>
+                        <tr>
+                            <td>BS EN 1991-2</td>
+                            <td>Traffic Loading</td>
+                            <td>Fatigue resistance under repeated loads</td>
+                        </tr>
+                        <tr>
+                            <td>BS EN 13529</td>
+                            <td>Chemical Resistance</td>
+                            <td>Performance in aggressive environments</td>
+                        </tr>
+                        <tr>
+                            <td>BS EN 826</td>
+                            <td>Compression Test</td>
+                            <td>Deformation characteristics</td>
+                        </tr>
+                        <tr>
+                            <td>ASTM G154</td>
+                            <td>UV Stability</td>
+                            <td>Long-term UV exposure effects</td>
+                        </tr>
+                        <tr>
+                            <td>DMRB CD 529</td>
+                            <td>Highway Drainage</td>
+                            <td>Design requirements for road drainage</td>
+                        </tr>
+                        <tr>
+                            <td>HA104/09</td>
+                            <td>Railway Drainage</td>
+                            <td>Requirements for trackside drainage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="download-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Technical Downloads</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Access detailed specifications, drawings, and documentation</p>
+            
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Clipboard with Checkmark ,report, inspection, quality, document, checklist.svg" alt="Technical Documentation" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Technical Data Sheet</h4>
+                    <p>Comprehensive specifications, performance data, and installation guidelines for both product systems.</p>
+                    <a href="#" class="btn-download">Download PDF</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Ruler, Compass, Measurement, Design, Engineering.svg" alt="Engineering Drawings" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>System Drawings</h4>
+                    <p>High-resolution technical drawings, dimensions, and assembly details in CAD-compatible formats.</p>
+                    <a href="#" class="btn-download">Download DWG</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Beaker, Measurement, Liquid, Chemistry, Laboratory.svg" alt="Laboratory Testing" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Test Reports</h4>
+                    <p>UKAS accredited test certificates, performance validation, and compliance documentation.</p>
+                    <a href="#" class="btn-download">Download Reports</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Rosehill Group</strong><br>
+                    Beech Road<br>
+                    Sowerby Bridge<br>
+                    West Yorkshire, HX6 2JT<br>
+                    United Kingdom</p>
+                    <p><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; filter: brightness(0) invert(100%);"> +44 (0) 1422 839 610<br>
+                    <img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; filter: brightness(0) invert(100%);"> info@rosehill-group.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Solutions</h3>
+                    <ul>
+                        <li><a href="solutions.html#trough-stacker">Trough & Stacker System</a></li>
+                        <li><a href="solutions.html#drainage-mats">Drainage Mats</a></li>
+                        <li><a href="applications.html">Railway Drainage</a></li>
+                        <li><a href="applications.html">Highway Drainage</a></li>
+                        <li><a href="applications.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Technical Information</h3>
+                    <ul>
+                        <li><a href="technical.html">Technical Data</a></li>
+                        <li><a href="technical.html">Performance Testing</a></li>
+                        <li><a href="technical.html">Installation Guide</a></li>
+                        <li><a href="sustainability.html">Environmental Data</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Rosehill Drainage</h3>
+                    <p>UK manufacturer of innovative drainage systems from 100% recycled rubber. Our modular solutions deliver exceptional hydraulic performance with minimal environmental impact.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Certifications:</strong><br>
+                        ISO 9001:2015 • National Highways Approved • Network Rail Accepted
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Rosehill Group. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Section navigation smooth scrolling and active state
+        const sectionLinks = document.querySelectorAll('.section-nav a');
+        const sections = document.querySelectorAll('.tech-section');
+        
+        sectionLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Update active state on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 250)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            sectionLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Drawing image click to enlarge (simple implementation)
+        document.querySelectorAll('.drawing-image').forEach(img => {
+            img.addEventListener('click', function() {
+                window.open(this.src, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

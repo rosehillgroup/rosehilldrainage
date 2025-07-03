@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Rosehill - Engineering Excellence Since 1988</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background: #ff6b35;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #e55a2b !important;
+            color: white !important;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 90px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('Rosehill_Polymers_BeechRd.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .about-section:nth-child(even) {
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Company Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .overview-content h3 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .overview-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .overview-image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-family: 'Overpass', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .overview-image {
+            text-align: center;
+        }
+
+        .overview-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .value-card h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Manufacturing Section */
+        .manufacturing-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .manufacturing-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .manufacturing-features li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .manufacturing-features li::before {
+            content: '';
+            background: url('/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/check mark, tick symbol, approved, verify, confirm.svg') no-repeat center;
+            background-size: 16px 16px;
+            filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #1a365d, #ff6b35);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-year {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #ff6b35;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #ff6b35;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: #ff6b35;
+            width: 20px;
+        }
+
+        .certifications {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .certifications h4 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .cert-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cert-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .cert-list li::before {
+            content: '';
+            background: url('/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/award, trophy, cup, winner, victory.svg') no-repeat center;
+            background-size: 24px 24px;
+            filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) invert(1);
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .overview-grid,
+            .manufacturing-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            .about-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-nav-menu" id="mobile-menu">
+                    <a href="index.html">Home</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="sustainability.html">Sustainability</a>
+                    <a href="technical.html">Technical</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-subtitle">Engineering Excellence Since 1988</div>
+                    <h1>About Rosehill</h1>
+                    <p class="hero-description">Leading the way in sustainable infrastructure solutions through innovation, quality, and environmental responsibility</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Overview -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">Over three decades of polymer innovation and infrastructure expertise</p>
+                
+                <div class="overview-grid">
+                    <div class="overview-content">
+                        <h3>From Polymer Innovation to Drainage Excellence</h3>
+                        <p>Founded in 1988, Rosehill established itself as a pioneer in polymer-based infrastructure solutions, building expertise in transforming recycled materials into high-performance products. Our decades of experience in sustainable manufacturing and engineering excellence laid the foundation for our recent expansion into advanced drainage systems.</p>
+                        
+                        <p>Recognising the critical need for sustainable drainage solutions across transport infrastructure, we've applied our proven polymer expertise to revolutionise how drainage challenges are addressed. Today, we combine over 30 years of materials innovation with cutting-edge drainage technology to deliver solutions that protect both infrastructure and environment.</p>
+                    </div>
+                    
+                    <div class="overview-image-section">
+                        <div class="overview-image">
+                            <img src="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.jpg" alt="Rosehill Drainage Systems">
+                        </div>
+                        
+                        <div class="overview-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">30+</span>
+                                <div class="stat-label">Years of Innovation</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">6</span>
+                                <div class="stat-label">Specialist Divisions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">The principles that drive everything we do</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/leaf, energy, nature, eco-friendly, green, plant, environment, sustainability.svg" alt="Sustainability" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></span>
+                        <h4>Sustainability First</h4>
+                        <p>Committed to the circular economy, transforming recycled materials into high-performance infrastructure products with minimal environmental impact.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <span class="value-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Microscope , analysis, examination, detail, lab, research.svg" alt="Innovation" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></span>
+                        <h4>Innovation & Quality</h4>
+                        <p>Continuous innovation in polymer technology with ISO 9001:2015 certification and UKAS accredited testing ensuring exceptional quality.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <span class="value-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Crane, Construction, Building, Engineering, Machinery.svg" alt="Engineering" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></span>
+                        <h4>Engineering Excellence</h4>
+                        <p>Over 20 years of expertise in transforming end-of-life polymers into high-performance solutions for demanding infrastructure applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manufacturing Excellence -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">UK Manufacturing Excellence</h2>
+                <p class="section-subtitle">Advanced facilities in West Yorkshire supporting local industry and sustainability</p>
+                
+                <div class="manufacturing-content">
+                    <div>
+                        <h3>Our Sowerby Bridge Facility</h3>
+                        <p>Operating from our UK facilities in Sowerby Bridge, West Yorkshire, we maintain full production control over our entire manufacturing process. Our advanced cold-cure manufacturing process requires minimal energy while delivering exceptional performance.</p>
+                        
+                        <ul class="manufacturing-features">
+                            <li>100% recycled rubber content in many products</li>
+                            <li>Cold-cure process with minimal energy requirements</li>
+                            <li>ISO 9001:2015 quality assurance system</li>
+                            <li>Manufacturing control ensuring exceptional quality</li>
+                            <li>UKAS accredited testing validation</li>
+                            <li>National Highways and Network Rail approved</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-image">
+                        <img src="Rosehill_Polymers_BeechRd.jpg" alt="Manufacturing Excellence">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">Our Journey</h2>
+                <p class="section-subtitle">Key milestones in our evolution as a sustainable infrastructure leader</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">1988</div>
+                            <div class="timeline-title">Company Founded</div>
+                            <div class="timeline-description">Rosehill established as a pioneer in polymer-based infrastructure solutions</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2000s</div>
+                            <div class="timeline-title">Sustainability Focus</div>
+                            <div class="timeline-description">Developed advanced recycling processes and circular economy principles</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2010s</div>
+                            <div class="timeline-title">Drainage Innovation</div>
+                            <div class="timeline-description">Partnership with Civil Water Management Ltd to develop revolutionary drainage systems</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2020s</div>
+                            <div class="timeline-title">Global Recognition</div>
+                            <div class="timeline-description">National Highways approval and international expansion of sustainable solutions</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Certifications -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to discuss your next infrastructure project?</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/andmark, map, location, tourist, point.svg" alt="Location" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
+                            <div>
+                                <strong>Address:</strong><br>
+                                Beech Road, Sowerby Bridge<br>
+                                West Yorkshire, HX6 2JT<br>
+                                United Kingdom
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
+                            <div><strong>Phone:</strong> +44 (0)1422 839 610</div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
+                            <div><strong>Email:</strong> info@rosehill-group.com</div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/GPS, signal, satellite, map, location.svg" alt="Website" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
+                            <div><strong>Website:</strong> rosehill-group.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="certifications">
+                        <h4>Certifications & Approvals</h4>
+                        
+                        <ul class="cert-list">
+                            <li>ISO 9001:2015 Quality Management</li>
+                            <li>UKAS Accredited Testing</li>
+                            <li>National Highways Approved</li>
+                            <li>Network Rail Accepted</li>
+                            <li>DMRB Compliant (CD 529 & CD 530)</li>
+                            <li>Environmental Standards Certified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Rosehill Group</strong><br>
+                    Beech Road<br>
+                    Sowerby Bridge<br>
+                    West Yorkshire, HX6 2JT<br>
+                    United Kingdom</p>
+                    <p><img src="../Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" class="contact-icon"> +44 (0) 1422 839 610<br>
+                    <img src="../Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" class="contact-icon"> info@rosehill-group.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Solutions</h3>
+                    <ul>
+                        <li><a href="solutions.html#trough-stacker">Trough & Stacker System</a></li>
+                        <li><a href="solutions.html#drainage-mats">Drainage Mats</a></li>
+                        <li><a href="applications.html">Railway Drainage</a></li>
+                        <li><a href="applications.html">Highway Drainage</a></li>
+                        <li><a href="applications.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Technical Information</h3>
+                    <ul>
+                        <li><a href="technical.html">Technical Data</a></li>
+                        <li><a href="technical.html">Performance Testing</a></li>
+                        <li><a href="technical.html">Installation Guide</a></li>
+                        <li><a href="sustainability.html">Environmental Data</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Rosehill Drainage</h3>
+                    <p>UK manufacturer of innovative drainage systems from 100% recycled rubber. Our modular solutions deliver exceptional hydraulic performance with minimal environmental impact.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Certifications:</strong><br>
+                        ISO 9001:2015 • National Highways Approved • Network Rail Accepted
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Rosehill Group. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

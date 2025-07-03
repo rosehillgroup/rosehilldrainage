@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability & Carbon Impact - Rosehill Drainage System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background: #ff6b35;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #e55a2b !important;
+            transform: translateY(-2px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.9), rgba(34, 153, 84, 0.8)), 
+                        url('drainage_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 120px 0 60px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.2;
+        }
+
+        .page-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styles */
+        .sustainability-section {
+            padding: 100px 0;
+        }
+
+        .sustainability-section:nth-child(odd) {
+            background: white;
+        }
+
+        .sustainability-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .sustainability-section:first-of-type {
+            padding-top: 60px;
+        }
+
+        .section-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Carbon Impact Section */
+        .carbon-impact {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px 20px;
+            margin: 30px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carbon-impact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .carbon-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carbon-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .carbon-intro h2 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .carbon-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .carbon-comparison {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .comparison-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-item.rosehill {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.2);
+        }
+
+        .comparison-item.competitor {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .comparison-value {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .comparison-item.rosehill .comparison-value {
+            color: #ff6b35;
+            font-size: 3.5rem;
+        }
+
+        .comparison-item.competitor .comparison-value {
+            color: #dc3545;
+        }
+
+        .comparison-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .comparison-item.rosehill .comparison-label {
+            color: white;
+        }
+
+        .comparison-item.competitor .comparison-label {
+            color: #1a365d;
+        }
+
+        .comparison-detail {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .savings-highlight {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .savings-highlight h3 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .savings-item {
+            padding: 20px;
+        }
+
+        .savings-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .savings-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Visual Elements */
+        .comparison-arrow {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #ff6b35;
+            z-index: 3;
+        }
+
+        .comparison-item.rosehill::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #ff6b35;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        
+        .comparison-item.rosehill::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background-image: url('/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/award, trophy, cup, winner, victory.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 30px 30px;
+            filter: brightness(0) invert(100%);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Impact Metrics */
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .metric-value {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 10px;
+        }
+
+        .metric-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+
+        /* Lifecycle Section */
+        .lifecycle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        .lifecycle-grid .lifecycle-stage:nth-child(n+4) {
+            margin-top: 30px;
+        }
+
+        .lifecycle-stage {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .lifecycle-stage::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            margin-top: -30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lifecycle-icon {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .lifecycle-stage h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            margin: 40px 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .lifecycle-stage p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff6b35;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-list li::before {
+            content: '';
+            background: url('/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/check mark, tick symbol, approved, verify, confirm.svg') no-repeat center;
+            background-size: 16px 16px;
+            filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: #27ae60;
+        }
+
+        .certification-card h4 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .certification-card p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .sustainability-cta {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin: 80px 0 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Overpass', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1a365d;
+            padding: 18px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: #1a365d;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .impact-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            
+            .lifecycle-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .carbon-comparison {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .comparison-item.rosehill {
+                transform: scale(1.05);
+                order: -1;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .lifecycle-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .carbon-comparison {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .comparison-item.rosehill {
+                transform: none;
+                order: -1;
+            }
+            
+            .savings-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="sustainability.html" class="active">Sustainability</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-nav-menu" id="mobile-menu">
+                    <a href="index.html">Home</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="sustainability.html" class="active">Sustainability</a>
+                    <a href="technical.html">Technical</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="contact-btn">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Sustainability & Carbon Impact</h1>
+            <p>Delivering infrastructure solutions with minimal environmental impact through circular economy principles</p>
+        </div>
+    </section>
+
+    <!-- Carbon Impact Highlight -->
+    <section class="sustainability-section">
+        <div class="container">
+            <div class="carbon-impact">
+                <div class="carbon-content">
+                    <div class="carbon-intro">
+                        <h2>Carbon Impact Comparison</h2>
+                        <p>See how our 307 kg CO₂e per m³ footprint compares to traditional drainage solutions</p>
+                    </div>
+                    
+                    <div class="carbon-comparison">
+                        <div class="comparison-item competitor">
+                            <span class="comparison-value">921</span>
+                            <div class="comparison-label">Concrete Systems</div>
+                            <div class="comparison-detail">kg CO₂e per m³</div>
+                        </div>
+                        
+                        <div class="comparison-item rosehill">
+                            <span class="comparison-value">307</span>
+                            <div class="comparison-label">Rosehill Drainage</div>
+                            <div class="comparison-detail">kg CO₂e per m³</div>
+                        </div>
+                        
+                        <div class="comparison-item competitor">
+                            <span class="comparison-value">614</span>
+                            <div class="comparison-label">HDPE Pipe Systems</div>
+                            <div class="comparison-detail">kg CO₂e per m³</div>
+                        </div>
+                    </div>
+                    
+                    <div class="savings-highlight">
+                        <h3>Environmental Savings</h3>
+                        <div class="savings-grid">
+                            <div class="savings-item">
+                                <span class="savings-value">614</span>
+                                <div class="savings-label">kg CO₂e saved vs concrete per m³</div>
+                            </div>
+                            <div class="savings-item">
+                                <span class="savings-value">307</span>
+                                <div class="savings-label">kg CO₂e saved vs HDPE per m³</div>
+                            </div>
+                            <div class="savings-item">
+                                <span class="savings-value">100%</span>
+                                <div class="savings-label">Recycled rubber content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="sustainability-section">
+        <div class="container">
+            <h2 class="section-title">Environmental Impact</h2>
+            <p class="section-subtitle">Measurable environmental benefits through innovative manufacturing and material choice</p>
+            
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <span class="metric-value">9,250</span>
+                    <div class="metric-label">Tyres Diverted</div>
+                    <p class="metric-description">End-of-life tyres diverted from landfill per kilometer of drainage installed</p>
+                </div>
+                
+                <div class="metric-card">
+                    <span class="metric-value">Zero</span>
+                    <div class="metric-label">Virgin Materials</div>
+                    <p class="metric-description">No virgin raw materials used in manufacturing process</p>
+                </div>
+                
+                <div class="metric-card">
+                    <span class="metric-value">60+</span>
+                    <div class="metric-label">Year Lifespan</div>
+                    <p class="metric-description">Extended service life reduces replacement frequency and material demand</p>
+                </div>
+                
+                <div class="metric-card">
+                    <span class="metric-value">100%</span>
+                    <div class="metric-label">Recyclable</div>
+                    <p class="metric-description">Fully recyclable at end of service life, supporting circular economy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Lifecycle Analysis -->
+    <section class="sustainability-section">
+        <div class="container">
+            <h2 class="section-title">Lifecycle Analysis</h2>
+            <p class="section-subtitle">Comprehensive cradle-to-grave environmental assessment</p>
+            
+            <div class="lifecycle-grid">
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/flask, laboratory, chemical, experiment, science.svg" alt="Raw Materials" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Raw Materials</h4>
+                    <p>100% recycled rubber from end-of-life tyres. Zero virgin materials, diverting waste from landfill and incineration.</p>
+                </div>
+                
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Factory, Industrial, Manufacturing, Engineering, Production.svg" alt="Manufacturing" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Manufacturing</h4>
+                    <p>Cold-cure process requires minimal energy input. UK-based production reduces transport emissions and supports local economy.</p>
+                </div>
+                
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/cargo truck, delivery vehicle, freight transport, logistics truck, shipping.svg" alt="Transport" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Transportation</h4>
+                    <p>Lightweight design reduces transport fuel consumption. Modular format maximises shipping efficiency and reduces logistics impact.</p>
+                </div>
+                
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Crane, Construction, Building, Engineering, Machinery.svg" alt="Installation" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Installation</h4>
+                    <p>Rapid installation without heavy machinery reduces site disruption, fuel consumption, and construction-related emissions.</p>
+                </div>
+                
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Gear, Mechanism, Machine, Engineering, Technology.svg" alt="Maintenance" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Service Life</h4>
+                    <p>60+ year design life with minimal maintenance requirements. Self-cleaning design maintains performance without intervention.</p>
+                </div>
+                
+                <div class="lifecycle-stage">
+                    <div class="lifecycle-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/recycle, arrow, cycle, direction, loop.svg" alt="End of Life" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>End of Life</h4>
+                    <p>Fully recyclable material can be reprocessed into new products, completing the circular economy loop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Benefits -->
+    <section class="sustainability-section">
+        <div class="container">
+            <h2 class="section-title">Environmental Benefits</h2>
+            <p class="section-subtitle">Comprehensive environmental advantages across multiple impact categories</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Waste Diversion</h3>
+                    <ul class="benefit-list">
+                        <li>Diverts 9,250 tyres from landfill per kilometer</li>
+                        <li>Prevents toxic leachate from tyre disposal</li>
+                        <li>Reduces methane emissions from landfill sites</li>
+                        <li>Eliminates harmful emissions from tyre incineration</li>
+                        <li>Creates value from waste stream</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>Resource Conservation</h3>
+                    <ul class="benefit-list">
+                        <li>Zero virgin polymer consumption</li>
+                        <li>Reduces demand for new raw materials</li>
+                        <li>Preserves finite natural resources</li>
+                        <li>Lower energy manufacturing process</li>
+                        <li>Minimal water usage in production</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>Long-term Performance</h3>
+                    <ul class="benefit-list">
+                        <li>60+ year service life reduces replacement frequency</li>
+                        <li>Chemical resistance prevents degradation</li>
+                        <li>UV stability maintains performance</li>
+                        <li>Freeze-thaw resistance in all climates</li>
+                        <li>Self-cleaning design reduces maintenance</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>Installation Efficiency</h3>
+                    <ul class="benefit-list">
+                        <li>75% faster installation than traditional systems</li>
+                        <li>No heavy machinery required</li>
+                        <li>Reduced site disruption and emissions</li>
+                        <li>Lower fuel consumption during construction</li>
+                        <li>Minimal excavation requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="sustainability-section">
+        <div class="container">
+            <h2 class="section-title">Environmental Certifications</h2>
+            <p class="section-subtitle">Independent verification and compliance with environmental standards</p>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Drainage 2025/Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/06_-_Analytics,_Bar,_Chart,_Clock,_Graph,_Statistics,_Stats.svg" alt="Data Analysis" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Product Carbon Footprint</h4>
+                    <p>Independently verified carbon footprint assessment following PAS 2050 methodology for comprehensive lifecycle analysis.</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/recycling, symbol, arrows, cycle, green.svg" alt="Recycling Certification" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Circular Economy</h4>
+                    <p>Demonstrates circular economy principles through 100% recycled content and end-of-life recyclability.</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/Factory, Industrial, Manufacturing, Engineering, Production.svg" alt="Manufacturing Certification" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>ISO 9001:2015</h4>
+                    <p>Quality management system certification ensures consistent environmental performance and manufacturing standards.</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/leaf, energy, nature, eco-friendly, green, plant, environment, sustainability.svg" alt="Environmental Certification" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>Environmental Compliance</h4>
+                    <p>Materials meet environmental regulations and contribute to BREEAM, LEED, and other green building standards.</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Drainage 2025/Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/21_-_Science,_Art,_Chemical,_Education,_Tech,_Flask.svg" alt="Testing" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>UKAS Testing</h4>
+                    <p>Accredited laboratory testing validates performance claims and ensures long-term environmental benefits.</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="cert-icon"><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/007-united kingdom.svg" alt="UK Manufactured" style="width: 40px; height: 40px; filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);"></div>
+                    <h4>UK Manufactured</h4>
+                    <p>Local production reduces transport emissions and supports sustainable supply chain management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="sustainability-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to reduce your carbon footprint?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">Join the sustainable infrastructure revolution with drainage systems that deliver performance and environmental responsibility.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white">Request Carbon Assessment</a>
+                    <a href="technical.html" class="btn-outline-white">Download Environmental Data</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Rosehill Group</strong><br>
+                    Beech Road<br>
+                    Sowerby Bridge<br>
+                    West Yorkshire, HX6 2JT<br>
+                    United Kingdom</p>
+                    <p><img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; filter: brightness(0) invert(100%);"> +44 (0) 1422 839 610<br>
+                    <img src="/Volumes/MacHDD/Users/danielprice/Documents/Websites 2025/Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; filter: brightness(0) invert(100%);"> info@rosehill-group.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Solutions</h3>
+                    <ul>
+                        <li><a href="solutions.html#trough-stacker">Trough & Stacker System</a></li>
+                        <li><a href="solutions.html#drainage-mats">Drainage Mats</a></li>
+                        <li><a href="applications.html">Railway Drainage</a></li>
+                        <li><a href="applications.html">Highway Drainage</a></li>
+                        <li><a href="applications.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Technical Information</h3>
+                    <ul>
+                        <li><a href="technical.html">Technical Data</a></li>
+                        <li><a href="technical.html">Performance Testing</a></li>
+                        <li><a href="technical.html">Installation Guide</a></li>
+                        <li><a href="sustainability.html">Environmental Data</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Rosehill Drainage</h3>
+                    <p>UK manufacturer of innovative drainage systems from 100% recycled rubber. Our modular solutions deliver exceptional hydraulic performance with minimal environmental impact.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Certifications:</strong><br>
+                        ISO 9001:2015 • National Highways Approved • Network Rail Accepted
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Rosehill Group. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Animate metric cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.metric-card, .benefit-card, .certification-card, .lifecycle-stage').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

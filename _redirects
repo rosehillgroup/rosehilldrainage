@@ -1,0 +1,16 @@
+# Netlify Redirects Configuration
+
+# Force HTTPS
+http://rosehilldrainage.netlify.app/* https://rosehilldrainage.netlify.app/:splat 301!
+
+# Clean URLs - remove .html extension
+/home /index.html 200
+/about /about.html 200
+/solutions /solutions.html 200
+/contact /contact.html 200
+/technical /technical.html 200
+/sustainability /sustainability.html 200
+/case-studies /case-studies.html 200
+
+# Fallback for 404 errors
+/* /index.html 404

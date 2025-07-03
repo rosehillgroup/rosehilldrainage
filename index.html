@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosehill Drainage System - Smarter Drainage for Modern Infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background: #ff6b35;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #e55a2b !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.7), rgba(45, 74, 113, 0.6)), 
+                        url('drainage_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="rgba(255,107,53,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background-size: 50px 50px;
+            background-position: center;
+            background-repeat: repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(26, 54, 93, 0.4) 0%, 
+                rgba(45, 74, 113, 0.3) 50%,
+                rgba(26, 54, 93, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 40px;
+        }
+
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+
+        .hero h1 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            text-align: left;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 35px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+            padding: 18px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #ff6b35;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Solutions Section - Staggered Layout */
+        .solutions-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+        }
+
+        .solutions-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .solution-row {
+            margin-bottom: 0;
+            padding: 80px 0;
+        }
+
+        .solution-row:nth-child(odd) {
+            background: #ffffff;
+        }
+
+        .solution-row:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .solution-row .solutions-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .solution-row:nth-child(even) .solutions-inner .solution-content {
+            order: 2;
+        }
+
+        .solution-row:nth-child(even) .solutions-inner .solution-visual {
+            order: 1;
+        }
+
+        .solution-content h3 {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .solution-content p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .solution-features li {
+            color: #1a365d;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .solution-visual {
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .solution-visual.custom-solutions {
+            background: linear-gradient(135deg, #8e44ad, #7d3c98);
+        }
+
+
+        /* Performance Stats */
+        .stats-section {
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-family: 'Overpass', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-description {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 53, 0.1);
+            border: 3px solid #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: #ff6b35;
+        }
+
+        .benefit-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .benefit-description {
+            color: #6c757d;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Icon Styles */
+        .icon-svg {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(4441%) hue-rotate(5deg) brightness(101%) contrast(102%);
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            filter: brightness(0) saturate(100%) invert(100%);
+        }
+
+        /* Case Studies Preview */
+        .case-studies-section {
+            padding: 80px 0;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .case-study-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .case-study-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-study-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study-card:hover .case-study-img {
+            transform: scale(1.05);
+        }
+
+        .case-study-content {
+            padding: 25px;
+        }
+
+        .case-study-title {
+            font-family: 'Overpass', sans-serif;
+            color: #1a365d;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .case-study-subtitle {
+            color: #ff6b35;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .case-study-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .case-study-result {
+            background: rgba(255, 107, 53, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .case-study-result strong {
+            color: #1a365d;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #ff6b35;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-white {
+            background: white;
+            color: #ff6b35;
+            padding: 18px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        } 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Overpass', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a365d, #2d4a71);
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+            }
+            
+            .solution-row .solutions-inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .solution-row:nth-child(even) .solutions-inner .solution-content {
+                order: 2;
+            }
+
+            .solution-row:nth-child(even) .solutions-inner .solution-visual {
+                order: 1;
+            }
+
+            .solution-row:nth-child(odd) .solutions-inner .solution-content {
+                order: 2;
+            }
+
+            .solution-row:nth-child(odd) .solutions-inner .solution-visual {
+                order: 1;
+            }
+            
+            .solution-row .solution-content {
+                order: 2;
+            }
+
+            .solution-row .solution-visual {
+                order: 1;
+            }
+            
+            .solution-content h3 {
+                margin-bottom: 15px;
+            }
+            
+            .solution-content p {
+                margin-bottom: 25px;
+            }
+            
+            .solution-features {
+                margin-bottom: 30px;
+                text-align: left;
+                display: inline-block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .solution-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .solution-visual {
+                height: 280px;
+            }
+            
+            .solution-visual .icon {
+                font-size: 6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="technical.html">Technical</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact Us</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-nav-menu" id="mobile-menu">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="sustainability.html">Sustainability</a>
+                    <a href="technical.html">Technical</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="contact-btn">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Smarter Drainage for Modern Infrastructure</h1>
+                <p>Sustainable, high-performance drainage systems engineered from recycled materials for exceptional performance in the most demanding conditions. Delivering long-term resilience with rapid installation across highways, rail, and civil engineering projects.</p>
+                <div class="hero-buttons">
+                    <a href="#solutions" class="btn-primary">Explore Solutions</a>
+                    <a href="contact.html" class="btn-secondary">Request Consultation</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Hero visual content removed to showcase background image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section" id="solutions">
+        <div class="solutions-container">
+            <h2 class="section-title">Drainage Solutions</h2>
+            <p class="section-subtitle">Modular, sustainable drainage systems combining outstanding hydraulic performance with environmental responsibility</p>
+            
+            <!-- Trough & Stacker System -->
+            <div class="solution-row">
+                <div class="solutions-inner">
+                    <div class="solution-content">
+                        <h3>Trough & Stacker System</h3>
+                        <p>Two-component modular system: Trough units channel water along the ditch floor while Stacker units placed on top filter surface water down into the trough below. Water then flows through the trough to connected catch pits. Perfect for trackside, highway, and infrastructure applications.</p>
+                        <ul class="solution-features">
+                            <li>176.4 m/hr vertical hydraulic conductivity</li>
+                            <li>Fatigue tested to 506,000+ load cycles</li>
+                            <li>60+ years design life in standard conditions</li>
+                            <li>Modular stackable design for custom capacity</li>
+                        </ul>
+                        <a href="solutions.html#trough-stacker" class="btn-primary">Learn More</a>
+                    </div>
+                    <div class="solution-visual trough-stacker">
+                        <img src="trough-stacker-hero.jpg" alt="Trough & Stacker System" class="solution-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drainage Mats -->
+            <div class="solution-row">
+                <div class="solutions-inner">
+                    <div class="solution-content">
+                        <h3>Drainage Mats</h3>
+                        <p>High-capacity surface and sub-surface drainage solution combining rapid installation with long-term durability in a lightweight format. Ideal for verges, embankments, and distributed drainage applications.</p>
+                        <ul class="solution-features">
+                            <li>49 litres/metre-sq/sec water permeability</li>
+                            <li>Multiple thickness options (50-100mm)</li>
+                            <li>Chemical and freeze-thaw resistant</li>
+                            <li>Perfect for verges and embankments</li>
+                        </ul>
+                        <a href="solutions.html#drainage-mats" class="btn-primary">Learn More</a>
+                    </div>
+                    <div class="solution-visual drainage-mats">
+                        <img src="drainage-mats-hero.jpg" alt="Drainage Mats" class="solution-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Proven Performance</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Independently tested and validated for real-world conditions</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">93%</span>
+                    <div class="stat-label">Less Embodied Carbon</div>
+                    <div class="stat-description">Compared to traditional concrete drainage systems</div>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">60+</span>
+                    <div class="stat-label">Years Design Life</div>
+                    <div class="stat-description">Long-term durability in standard conditions</div>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">90%</span>
+                    <div class="stat-label">Recycled Content</div>
+                    <div class="stat-description">Supporting circular economy initiatives</div>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">176</span>
+                    <div class="stat-label">m/hr Hydraulic Performance</div>
+                    <div class="stat-description">Exceptional vertical water conductivity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Rosehill Drainage?</h2>
+            <p class="section-subtitle">Engineering excellence meets environmental responsibility</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/023-united kingdom.svg" alt="UK Flag" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">UK Manufactured</h3>
+                    <p class="benefit-description">Manufactured using recycled materials in our UK facilities with ISO 9001:2015 quality assurance, supporting local industry and sustainability.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/lightning bolt, energy, electricity, power, flash, thunder, storm, electric.svg" alt="Lightning Bolt" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">Rapid Installation</h3>
+                    <p class="benefit-description">Lightweight modular design enables fast installation without heavy plant equipment, reducing disruption and project timelines.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/Microscope , analysis, examination, detail, lab, research.svg" alt="Microscope" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">Independently Tested</h3>
+                    <p class="benefit-description">UKAS accredited testing validates performance under extreme conditions, including National Highways approval for strategic road networks.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/recycling, eco, sustainability, waste, reuse.svg" alt="Recycling" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">Sustainable Innovation</h3>
+                    <p class="benefit-description">Cold-cure manufacturing process from recycled rubber creates high-performance solutions with minimal environmental impact.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/Wrench, Tool, Repair, Engineering, Maintenance.svg" alt="Wrench" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">Adaptable Design</h3>
+                    <p class="benefit-description">Modular components can be cut, shaped, and configured on-site to navigate obstacles and challenging ground conditions.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="../Icons/Glyph/Shield with Checkmark,protection, security, quality, assurance, verified.svg" alt="Shield" class="icon-svg">
+                    </div>
+                    <h3 class="benefit-title">Proven Durability</h3>
+                    <p class="benefit-description">Resistant to chemicals, freeze-thaw cycles, and heavy loading with minimal maintenance requirements over decades of service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Preview -->
+    <section class="case-studies-section">
+        <div class="container">
+            <h2 class="section-title">Real-World Success</h2>
+            <p class="section-subtitle">Proven performance across highways, rail, and infrastructure projects</p>
+            
+            <div class="case-studies-grid">
+                <!-- Pembroke Rail Case Study -->
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="Pembroke_CaseStudy.jpg" alt="Pembroke Rail Cutting" class="case-study-img">
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">Pembroke Rail Cutting</h3>
+                        <p class="case-study-subtitle">Trackside Drainage in Challenging Conditions</p>
+                        <p class="case-study-description">Successfully navigated shallow bedrock and telecoms infrastructure with curved installation, completed within tight rail possession windows.</p>
+                        <div class="case-study-result">
+                            <strong>Result:</strong> 42 litres/second discharge rate achieved with zero performance compromise
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Highways Case Study -->
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="nationalhighways_casestudy.jpg" alt="National Highways Test Centre" class="case-study-img">
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">National Highways Test Centre</h3>
+                        <p class="case-study-subtitle">Independent Validation for Strategic Roads</p>
+                        <p class="case-study-description">Full-scale performance testing under simulated extreme rainfall conditions validated system capacity and structural resilience.</p>
+                        <div class="case-study-result">
+                            <strong>Result:</strong> 679.5 litres/min per linear metre with no signs of structural stress
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="case-studies.html" class="btn-primary">View All Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Highlight -->
+    <section class="section" style="background: linear-gradient(135deg, #27ae60, #229954); color: white;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 class="section-title" style="color: white;">Carbon-Conscious Engineering</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 30px; opacity: 0.95;">Our Product Carbon Footprint Report shows just 307 kg CO₂e per m³ of material - approximately one-third the emissions of concrete and half that of HDPE pipe systems.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #ff6b35; margin-bottom: 10px;">9,250</div>
+                        <div style="font-size: 1.1rem;">Tyres diverted per km</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #ff6b35; margin-bottom: 10px;">100%</div>
+                        <div style="font-size: 1.1rem;">Recycled rubber content</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #ff6b35; margin-bottom: 10px;">Zero</div>
+                        <div style="font-size: 1.1rem;">Virgin materials used</div>
+                    </div>
+                </div>
+                
+                <a href="sustainability.html" class="btn-white">Learn About Our Sustainability</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Drainage Infrastructure?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Contact our engineering team to discuss how Rosehill Drainage Systems can deliver sustainable, high-performance solutions for your next project.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-white">Request Consultation</a>
+                <a href="technical.html" class="btn-outline-white">Download Technical Data</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><strong>Rosehill Group</strong><br>
+                    Beech Road<br>
+                    Sowerby Bridge<br>
+                    West Yorkshire, HX6 2JT<br>
+                    United Kingdom</p>
+                    <p><img src="../Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" class="contact-icon"> +44 (0) 1422 839 610<br>
+                    <img src="../Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" class="contact-icon"> info@rosehill-group.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Solutions</h3>
+                    <ul>
+                        <li><a href="solutions.html#trough-stacker">Trough & Stacker System</a></li>
+                        <li><a href="solutions.html#drainage-mats">Drainage Mats</a></li>
+                        <li><a href="applications.html">Railway Drainage</a></li>
+                        <li><a href="applications.html">Highway Drainage</a></li>
+                        <li><a href="applications.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Technical Information</h3>
+                    <ul>
+                        <li><a href="technical.html">Technical Data</a></li>
+                        <li><a href="technical.html">Performance Testing</a></li>
+                        <li><a href="technical.html">Installation Guide</a></li>
+                        <li><a href="sustainability.html">Environmental Data</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Rosehill Drainage</h3>
+                    <p>UK manufacturer of innovative drainage systems from 100% recycled rubber. Our modular solutions deliver exceptional hydraulic performance with minimal environmental impact.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Certifications:</strong><br>
+                        ISO 9001:2015 • National Highways Approved • Network Rail Accepted
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Rosehill Group. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(26, 54, 93, 0.98), rgba(45, 74, 113, 0.98))';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 8px 32px rgba(0,0,0,0.15)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a365d, #2d4a71)';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Mobile menu toggle functionality
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and benefit items for animation
+        document.querySelectorAll('.solution-card, .benefit-item, .case-study-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (counter.textContent.includes('%')) {
+                        counter.textContent = Math.floor(current) + '%';
+                    } else if (counter.textContent.includes('+')) {
+                        counter.textContent = Math.floor(current) + '+';
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 50);
+            });
+        }
+
+        // Trigger counter animation when stats section comes into view
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
