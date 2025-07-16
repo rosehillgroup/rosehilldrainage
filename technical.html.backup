@@ -108,7 +108,7 @@
         /* Page Hero */
         .page-hero {
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(45, 74, 113, 0.7)), 
-                        url('drainage_hero.webp');
+                        url('drainage_hero.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -698,11 +698,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
-                    <picture>
-        <source srcset="rosehill_drainage_logo.avif" type="image/avif">
-        <source srcset="rosehill_drainage_logo.webp" type="image/webp">
-        <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" >
-    </picture>
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
                 </a>
             </div>
             <nav>
@@ -1191,41 +1187,25 @@
             <div class="drawings-grid">
                 <div class="drawing-card">
                     <h4>Trough A - Standard Configuration</h4>
-                    <picture>
-        <source srcset="trough_a_drawing.avif" type="image/avif">
-        <source srcset="trough_a_drawing.webp" type="image/webp">
-        <img src="trough_a_drawing.png" alt="Trough A Technical Drawing" class="drawing-image">
-    </picture>
+                    <img src="trough_a_drawing.png" alt="Trough A Technical Drawing" class="drawing-image">
                     <p class="drawing-description">Standard trough unit dimensions and connection details. Base component for linear drainage systems.</p>
                 </div>
 
                 <div class="drawing-card">
                     <h4>Trough B - Extended Configuration</h4>
-                    <picture>
-        <source srcset="trough_b_drawing.avif" type="image/avif">
-        <source srcset="trough_b_drawing.webp" type="image/webp">
-        <img src="trough_b_drawing.png" alt="Trough B Technical Drawing" class="drawing-image">
-    </picture>
+                    <img src="trough_b_drawing.png" alt="Trough B Technical Drawing" class="drawing-image">
                     <p class="drawing-description">Extended trough configuration for increased capacity applications. Enhanced storage volume.</p>
                 </div>
 
                 <div class="drawing-card">
                     <h4>Stacker System Assembly</h4>
-                    <picture>
-        <source srcset="stacker_drawing.avif" type="image/avif">
-        <source srcset="stacker_drawing.webp" type="image/webp">
-        <img src="stacker_drawing.png" alt="Stacker System Technical Drawing" class="drawing-image">
-    </picture>
+                    <img src="stacker_drawing.png" alt="Stacker System Technical Drawing" class="drawing-image">
                     <p class="drawing-description">Stacker unit interlocking mechanism and vertical assembly configuration for unlimited depth.</p>
                 </div>
 
                 <div class="drawing-card">
                     <h4>Drainage Mat Configuration</h4>
-                    <picture>
-        <source srcset="drainagemat_drawing.avif" type="image/avif">
-        <source srcset="drainagemat_drawing.webp" type="image/webp">
-        <img src="drainagemat_drawing.png" alt="Drainage Mat Technical Drawing" class="drawing-image">
-    </picture>
+                    <img src="drainagemat_drawing.png" alt="Drainage Mat Technical Drawing" class="drawing-image">
                     <p class="drawing-description">Standard mat dimensions, thickness options, and installation overlap requirements.</p>
                 </div>
             </div>

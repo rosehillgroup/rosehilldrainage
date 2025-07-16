@@ -234,11 +234,11 @@
         }
 
         .case-study-hero.pembroke-hero {
-            background-image: linear-gradient(rgba(26, 54, 93, 0.4), rgba(26, 54, 93, 0.4)), url('Pembroke_CaseStudy.webp');
+            background-image: linear-gradient(rgba(26, 54, 93, 0.4), rgba(26, 54, 93, 0.4)), url('Pembroke_CaseStudy.jpg');
         }
 
         .case-study-hero.national-highways-hero {
-            background-image: linear-gradient(rgba(26, 54, 93, 0.4), rgba(26, 54, 93, 0.4)), url('nationalhighways_casestudy.webp');
+            background-image: linear-gradient(rgba(26, 54, 93, 0.4), rgba(26, 54, 93, 0.4)), url('nationalhighways_casestudy.jpg');
         }
 
         .case-study-hero-content h1 {
@@ -695,11 +695,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
-                    <picture>
-        <source srcset="rosehill_drainage_logo.avif" type="image/avif">
-        <source srcset="rosehill_drainage_logo.webp" type="image/webp">
-        <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" >
-    </picture>
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
                 </a>
             </div>
             <nav>
@@ -884,25 +880,13 @@
                         <h3>Installation Images</h3>
                         <div class="gallery-grid">
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="case_study_drainage_pembroke_01.avif" type="image/avif">
-        <source srcset="case_study_drainage_pembroke_01.webp" type="image/webp">
-        <img src="case_study_drainage_pembroke_01.jpg" alt="Pembroke Installation Progress" >
-    </picture>
+                                <img src="case_study_drainage_pembroke_01.jpg" alt="Pembroke Installation Progress">
                             </div>
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="case_study_drainage_pembroke_02.avif" type="image/avif">
-        <source srcset="case_study_drainage_pembroke_02.webp" type="image/webp">
-        <img src="case_study_drainage_pembroke_02.jpg" alt="Pembroke System Installation" >
-    </picture>
+                                <img src="case_study_drainage_pembroke_02.jpg" alt="Pembroke System Installation">
                             </div>
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="case_study_drainage_pembroke_03.avif" type="image/avif">
-        <source srcset="case_study_drainage_pembroke_03.webp" type="image/webp">
-        <img src="case_study_drainage_pembroke_03.jpg" alt="Pembroke Completed Installation" >
-    </picture>
+                                <img src="case_study_drainage_pembroke_03.jpg" alt="Pembroke Completed Installation">
                             </div>
                         </div>
                     </div>
@@ -1026,25 +1010,13 @@
                         <h3>Testing & Installation Images</h3>
                         <div class="gallery-grid">
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="trough-stacker-install-1.avif" type="image/avif">
-        <source srcset="trough-stacker-install-1.webp" type="image/webp">
-        <img src="trough-stacker-install-1.jpg" alt="Test Centre Setup" >
-    </picture>
+                                <img src="trough-stacker-install-1.jpg" alt="Test Centre Setup">
                             </div>
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="trough-stacker-install-2.avif" type="image/avif">
-        <source srcset="trough-stacker-install-2.webp" type="image/webp">
-        <img src="trough-stacker-install-2.jpg" alt="Performance Testing" >
-    </picture>
+                                <img src="trough-stacker-install-2.jpg" alt="Performance Testing">
                             </div>
                             <div class="gallery-item">
-                                <picture>
-        <source srcset="trough-stacker-install-3.avif" type="image/avif">
-        <source srcset="trough-stacker-install-3.webp" type="image/webp">
-        <img src="trough-stacker-install-3.jpg" alt="Validation Results" >
-    </picture>
+                                <img src="trough-stacker-install-3.jpg" alt="Validation Results">
                             </div>
                         </div>
                     </div>

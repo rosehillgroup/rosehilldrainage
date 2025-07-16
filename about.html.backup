@@ -190,7 +190,7 @@
 
         /* Hero Section */
         .about-hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('Rosehill_Polymers_BeechRd.webp');
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('Rosehill_Polymers_BeechRd.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -661,11 +661,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
-                    <picture>
-        <source srcset="rosehill_drainage_logo.avif" type="image/avif">
-        <source srcset="rosehill_drainage_logo.webp" type="image/webp">
-        <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" >
-    </picture>
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
                 </a>
             </div>
             <nav>
@@ -725,11 +721,7 @@
                     
                     <div class="overview-image-section">
                         <div class="overview-image">
-                            <picture>
-        <source srcset="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.avif" type="image/avif">
-        <source srcset="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.webp" type="image/webp">
-        <img src="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.jpg" alt="Rosehill Drainage Systems" >
-    </picture>
+                            <img src="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.jpg" alt="Rosehill Drainage Systems">
                         </div>
                         
                         <div class="overview-stats">
@@ -797,11 +789,7 @@
                     </div>
                     
                     <div class="overview-image">
-                        <picture>
-        <source srcset="Rosehill_Polymers_BeechRd.avif" type="image/avif">
-        <source srcset="Rosehill_Polymers_BeechRd.webp" type="image/webp">
-        <img src="Rosehill_Polymers_BeechRd.jpg" alt="Manufacturing Excellence" >
-    </picture>
+                        <img src="Rosehill_Polymers_BeechRd.jpg" alt="Manufacturing Excellence">
                     </div>
                 </div>
             </div>

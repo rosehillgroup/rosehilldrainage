@@ -108,7 +108,7 @@
         /* Page Hero */
         .page-hero {
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(45, 74, 113, 0.7)), 
-                        url('drainage_hero.webp');
+                        url('drainage_hero.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -848,11 +848,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
-                    <picture>
-        <source srcset="rosehill_drainage_logo.avif" type="image/avif">
-        <source srcset="rosehill_drainage_logo.webp" type="image/webp">
-        <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" >
-    </picture>
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
                 </a>
             </div>
             <nav>
@@ -909,11 +905,7 @@
 
             <!-- Product Image -->
             <div class="product-image-section">
-                <picture>
-        <source srcset="trough-stacker-hero.avif" type="image/avif">
-        <source srcset="trough-stacker-hero.webp" type="image/webp">
-        <img src="trough-stacker-hero.jpg" alt="Trough & Stacker System in use" class="product-hero-image">
-    </picture>
+                <img src="trough-stacker-hero.jpg" alt="Trough & Stacker System in use" class="product-hero-image">
             </div>
 
             <!-- Performance Metrics -->
@@ -1099,21 +1091,9 @@
 
             <!-- Image Gallery -->
             <div class="image-gallery">
-                <picture>
-        <source srcset="trough-stacker-install-1.avif" type="image/avif">
-        <source srcset="trough-stacker-install-1.webp" type="image/webp">
-        <img src="trough-stacker-install-1.jpg" alt="Installation process" class="gallery-image">
-    </picture>
-                <picture>
-        <source srcset="trough-stacker-install-2.avif" type="image/avif">
-        <source srcset="trough-stacker-install-2.webp" type="image/webp">
-        <img src="trough-stacker-install-2.jpg" alt="Stacking demonstration" class="gallery-image">
-    </picture>
-                <picture>
-        <source srcset="trough-stacker-install-3.avif" type="image/avif">
-        <source srcset="trough-stacker-install-3.webp" type="image/webp">
-        <img src="trough-stacker-install-3.jpg" alt="Completed installation" class="gallery-image">
-    </picture>
+                <img src="trough-stacker-install-1.jpg" alt="Installation process" class="gallery-image">
+                <img src="trough-stacker-install-2.jpg" alt="Stacking demonstration" class="gallery-image">
+                <img src="trough-stacker-install-3.jpg" alt="Completed installation" class="gallery-image">
             </div>
 
             <!-- Product CTA -->
@@ -1138,11 +1118,7 @@
 
             <!-- Product Image -->
             <div class="product-image-section">
-                <picture>
-        <source srcset="drainage-mats-hero.avif" type="image/avif">
-        <source srcset="drainage-mats-hero.webp" type="image/webp">
-        <img src="drainage-mats-hero.jpg" alt="Drainage Mats installation" class="product-hero-image">
-    </picture>
+                <img src="drainage-mats-hero.jpg" alt="Drainage Mats installation" class="product-hero-image">
             </div>
 
             <!-- Performance Metrics -->
@@ -1328,21 +1304,9 @@
 
             <!-- Image Gallery -->
             <div class="image-gallery">
-                <picture>
-        <source srcset="drainage-mats-1.avif" type="image/avif">
-        <source srcset="drainage-mats-1.webp" type="image/webp">
-        <img src="drainage-mats-1.jpg" alt="Manual Handling" class="gallery-image">
-    </picture>
-                <picture>
-        <source srcset="drainage-mats-2.avif" type="image/avif">
-        <source srcset="drainage-mats-2.webp" type="image/webp">
-        <img src="drainage-mats-2.jpg" alt="Cut to Size" class="gallery-image">
-    </picture>
-                <picture>
-        <source srcset="drainage-mats-3.avif" type="image/avif">
-        <source srcset="drainage-mats-3.webp" type="image/webp">
-        <img src="drainage-mats-3.jpg" alt="Add Aggregate" class="gallery-image">
-    </picture>
+                <img src="drainage-mats-1.jpg" alt="Manual Handling" class="gallery-image">
+                <img src="drainage-mats-2.jpg" alt="Cut to Size" class="gallery-image">
+                <img src="drainage-mats-3.jpg" alt="Add Aggregate" class="gallery-image">
             </div>
 
             <!-- Product CTA -->

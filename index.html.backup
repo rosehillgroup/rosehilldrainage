@@ -108,7 +108,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.7), rgba(45, 74, 113, 0.6)), 
-                        url('drainage_hero.webp');
+                        url('drainage_hero.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -867,11 +867,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
-                    <picture>
-        <source srcset="rosehill_drainage_logo.avif" type="image/avif">
-        <source srcset="rosehill_drainage_logo.webp" type="image/webp">
-        <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" >
-    </picture>
+                    <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage">
                 </a>
             </div>
             <nav>
@@ -940,11 +936,7 @@
                         <a href="solutions.html#trough-stacker" class="btn-primary">Learn More</a>
                     </div>
                     <div class="solution-visual trough-stacker">
-                        <picture>
-        <source srcset="trough-stacker-hero.avif" type="image/avif">
-        <source srcset="trough-stacker-hero.webp" type="image/webp">
-        <img src="trough-stacker-hero.jpg" alt="Trough & Stacker System" class="solution-image">
-    </picture>
+                        <img src="trough-stacker-hero.jpg" alt="Trough & Stacker System" class="solution-image">
                     </div>
                 </div>
             </div>
@@ -964,11 +956,7 @@
                         <a href="solutions.html#drainage-mats" class="btn-primary">Learn More</a>
                     </div>
                     <div class="solution-visual drainage-mats">
-                        <picture>
-        <source srcset="drainage-mats-hero.avif" type="image/avif">
-        <source srcset="drainage-mats-hero.webp" type="image/webp">
-        <img src="drainage-mats-hero.jpg" alt="Drainage Mats" class="solution-image">
-    </picture>
+                        <img src="drainage-mats-hero.jpg" alt="Drainage Mats" class="solution-image">
                     </div>
                 </div>
             </div>
@@ -1077,11 +1065,7 @@
                 <!-- Pembroke Rail Case Study -->
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <picture>
-        <source srcset="Pembroke_CaseStudy.avif" type="image/avif">
-        <source srcset="Pembroke_CaseStudy.webp" type="image/webp">
-        <img src="Pembroke_CaseStudy.jpg" alt="Pembroke Rail Cutting" class="case-study-img">
-    </picture>
+                        <img src="Pembroke_CaseStudy.jpg" alt="Pembroke Rail Cutting" class="case-study-img">
                     </div>
                     <div class="case-study-content">
                         <h3 class="case-study-title">Pembroke Rail Cutting</h3>
@@ -1096,11 +1080,7 @@
                 <!-- National Highways Case Study -->
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <picture>
-        <source srcset="nationalhighways_casestudy.avif" type="image/avif">
-        <source srcset="nationalhighways_casestudy.webp" type="image/webp">
-        <img src="nationalhighways_casestudy.jpg" alt="National Highways Test Centre" class="case-study-img">
-    </picture>
+                        <img src="nationalhighways_casestudy.jpg" alt="National Highways Test Centre" class="case-study-img">
                     </div>
                     <div class="case-study-content">
                         <h3 class="case-study-title">National Highways Test Centre</h3>
