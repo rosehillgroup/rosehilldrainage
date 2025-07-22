@@ -11,6 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N87GQD3Z');</script>
+    <!-- End Google Tag Manager -->
     <style>
         * {
             margin: 0;
@@ -866,6 +874,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N87GQD3Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
     <header class="header">
         <div class="header-container">
@@ -1333,6 +1345,65 @@
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
+
+        // Track drainage product engagement
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (!target) return;
+            
+            const href = target.getAttribute('href');
+            if (!href) return;
+            
+            // Track solutions page access
+            if (href.includes('solutions.html')) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'engagement',
+                    'engagement_type': 'solutions_access',
+                    'business_area': 'drainage',
+                    'product_focus': href.includes('#') ? href.split('#')[1] : 'general',
+                    'click_text': target.textContent.trim(),
+                    'page_location': window.location.href,
+                    'source_section': target.closest('section')?.className || 'unknown'
+                });
+            }
+            
+            // Track technical data access
+            if (href.includes('technical.html')) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'engagement',
+                    'engagement_type': 'technical_data_access',
+                    'business_area': 'drainage',
+                    'click_text': target.textContent.trim(),
+                    'page_location': window.location.href
+                });
+            }
+            
+            // Track case studies access
+            if (href.includes('case-studies.html')) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'engagement',
+                    'engagement_type': 'case_studies_access',
+                    'business_area': 'drainage',
+                    'click_text': target.textContent.trim(),
+                    'page_location': window.location.href
+                });
+            }
+            
+            // Track consultation requests
+            if (href.includes('contact.html') && target.textContent.toLowerCase().includes('consultation')) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'engagement',
+                    'engagement_type': 'consultation_request',
+                    'business_area': 'drainage',
+                    'click_text': target.textContent.trim(),
+                    'page_location': window.location.href
+                });
+            }
+        });
     </script>
 </body>
 </html>
