@@ -45,3 +45,9 @@
   for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
+
+# Redirect applications.html to solutions page
+[[redirects]]
+  from = "/applications.html"
+  to = "/solutions.html"
+  status = 301
