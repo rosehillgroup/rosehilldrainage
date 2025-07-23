@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin or temp directories
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /.well-known/
+
+# Allow crawling of images and assets
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.avif$
+Allow: /*.svg$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://drainage.rosehill.group/sitemap.xml
+
+# Crawl delay (optional - be respectful)
+Crawl-delay: 1
