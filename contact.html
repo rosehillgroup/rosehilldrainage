@@ -537,6 +537,11 @@
                 padding: 30px;
             }
         }
+
+        /* Hidden field for bot protection */
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -607,7 +612,11 @@
                     <!-- Contact Form -->
                     <div class="contact-form">
                         <h2>Project Inquiry Form</h2>
-                        <form id="contactForm" action="#" method="POST">
+                        <form name="contact" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html" id="contactForm">
+                            <input type="hidden" name="form-name" value="contact">
+                            <p class="hidden">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </p>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="firstName">First Name *</label>
