@@ -329,8 +329,10 @@
         .overview-image img {
             width: 100%;
             max-width: 500px;
+            height: auto;
             border-radius: 15px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            object-fit: cover;
         }
 
         /* Values Section */
@@ -746,7 +748,7 @@
                             <picture>
         <source srcset="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.avif" type="image/avif">
         <source srcset="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.webp" type="image/webp">
-        <img src="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.jpg" alt="Rosehill Drainage Systems" width="2048" height="1366">
+        <img src="Rosehill_Drainage_System_A5_PRINT/publication-web-resources/image/01_Rosehill_Polymers_-_Drainage_Channel-1819_Med_Res_No_Pipe.jpg" alt="Rosehill Drainage Systems">
     </picture>
                         </div>
                         
@@ -818,7 +820,7 @@
                         <picture>
         <source srcset="Rosehill_Polymers_BeechRd.avif" type="image/avif">
         <source srcset="Rosehill_Polymers_BeechRd.webp" type="image/webp">
-        <img src="Rosehill_Polymers_BeechRd.jpg" alt="Manufacturing Excellence" width="2048" height="1366">
+        <img src="Rosehill_Polymers_BeechRd.jpg" alt="Manufacturing Excellence"
     </picture>
                     </div>
                 </div>
@@ -893,17 +895,17 @@
                         
                         <div class="contact-item">
                             <span class="contact-icon"><img src="Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
-                            <div><strong>Phone:</strong> +44 (0)1422 839 610</div>
+                            <div><strong>Phone:</strong> <a href="tel:+441422839610" style="color: #333; text-decoration: none;">+44 (0)1422 839 610</a></div>
                         </div>
                         
                         <div class="contact-item">
                             <span class="contact-icon"><img src="Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
-                            <div><strong>Email:</strong> info@rosehill-group.com</div>
+                            <div><strong>Email:</strong> <a href="mailto:info@rosehilldrainage.com" style="color: #333; text-decoration: none;">info@rosehilldrainage.com</a></div>
                         </div>
                         
                         <div class="contact-item">
                             <span class="contact-icon"><img src="Icons/Glyph/GPS, signal, satellite, map, location.svg" alt="Website" style="width: 20px; height: 20px; filter: brightness(0) invert(100%);"></span>
-                            <div><strong>Website:</strong> rosehill-group.com</div>
+                            <div><strong>Website:</strong> drainage.rosehill.group</div>
                         </div>
                     </div>
                     
@@ -930,13 +932,14 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><strong><a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a></strong><br>
+                    <p><strong>Rosehill Drainage<br>
+                    A Division of <a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a></strong><br>
                     Beech Road<br>
                     Sowerby Bridge<br>
                     West Yorkshire, HX6 2JT<br>
                     United Kingdom</p>
-                    <p><img src="Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" class="contact-icon" width="16" height="16"> +44 (0) 1422 839 610<br>
-                    <img src="Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" class="contact-icon" width="16" height="16"> info@rosehill-group.com</p>
+                    <p><img src="Icons/Glyph/phone, call, telephone, handset, communication, contact, mobile, device.svg" alt="Phone" class="contact-icon" width="16" height="16"> <a href="tel:+441422839610" style="color: white; text-decoration: none;">+44 (0) 1422 839 610</a><br>
+                    <img src="Icons/Glyph/email, envelope, mail, message, communication, contact, letter, send.svg" alt="Email" class="contact-icon" width="16" height="16"> <a href="mailto:info@rosehilldrainage.com" style="color: white; text-decoration: none;">info@rosehilldrainage.com</a></p>
                 </div>
                 
                 <div class="footer-section">
@@ -953,9 +956,11 @@
                 <div class="footer-section">
                     <h3>Technical Information</h3>
                     <ul>
-                        <li><a href="technical.html">Technical Data</a></li>
-                        <li><a href="technical.html">Performance Testing</a></li>
-                        <li><a href="technical.html">Installation Guide</a></li>
+                        <li><a href="technical.html#overview">System Overview</a></li>
+                        <li><a href="technical.html#trough-stacker">Trough & Stacker Data</a></li>
+                        <li><a href="technical.html#drainage-mats">Drainage Mats Data</a></li>
+                        <li><a href="technical.html#system-drawings">System Drawings</a></li>
+                        <li><a href="technical.html#testing">Testing & Standards</a></li>
                         <li><a href="sustainability.html">Environmental Data</a></li>
                         <li><a href="case-studies.html">Case Studies</a></li>
                     </ul>
@@ -972,7 +977,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 <a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a>. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+                <p>© 2025 Rosehill Drainage, A Division of <a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a>. All rights reserved. | Engineered for performance, designed for sustainability.</p>
             </div>
         </div>
     </footer>
