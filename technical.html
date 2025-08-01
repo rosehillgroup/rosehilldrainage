@@ -183,6 +183,70 @@
             z-index: 100;
             margin-bottom: 60px;
         }
+        
+        .mobile-section-dropdown {
+            display: none;
+            position: relative;
+        }
+        
+        .mobile-section-dropdown-toggle {
+            width: 100%;
+            padding: 15px 20px;
+            background: white;
+            border: 1px solid #e9ecef;
+            color: #1a365d;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-section-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-top: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 101;
+        }
+        
+        .mobile-section-dropdown.active .mobile-section-dropdown-content {
+            display: block;
+        }
+        
+        .mobile-section-dropdown-content a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #1a365d;
+            font-weight: 600;
+            border-bottom: 1px solid #f8f9fa;
+            transition: background 0.3s ease;
+        }
+        
+        .mobile-section-dropdown-content a:hover,
+        .mobile-section-dropdown-content a.active {
+            background: rgba(255, 107, 53, 0.05);
+            color: #ff6b35;
+        }
+        
+        .mobile-section-dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-section-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
 
         .section-nav-inner {
             max-width: 1400px;
@@ -634,6 +698,20 @@
         .mobile-nav-menu a:hover {
             color: #ff6b35;
         }
+        
+        .mobile-nav-menu .contact-btn {
+            background: #ff6b35;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            margin: 10px 20px;
+            padding: 12px 24px;
+        }
+        
+        .mobile-nav-menu .contact-btn:hover {
+            background: #e55a2b;
+            color: white;
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -691,17 +769,21 @@
                 padding: 10px 15px;
                 font-size: 0.9rem;
             }
+            
+            .section-nav-inner {
+                display: none;
+            }
+            
+            .mobile-section-dropdown {
+                display: block;
+            }
         }
 
         @media (max-width: 480px) {
-            .section-nav-inner {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .section-nav a {
-                border-bottom: 1px solid #e9ecef;
-                border-radius: 0;
+            .tech-table th,
+            .tech-table td {
+                padding: 8px 4px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -767,6 +849,19 @@
             <a href="#drainage-mats">Drainage Mats</a>
             <a href="#system-drawings">System Drawings</a>
             <a href="#testing">Testing & Standards</a>
+        </div>
+        <div class="mobile-section-dropdown">
+            <button class="mobile-section-dropdown-toggle" id="section-dropdown-toggle">
+                <span id="current-section">Overview</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="mobile-section-dropdown-content">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#trough-stacker">Trough & Stacker</a>
+                <a href="#drainage-mats">Drainage Mats</a>
+                <a href="#system-drawings">System Drawings</a>
+                <a href="#testing">Testing & Standards</a>
+            </div>
         </div>
     </nav>
 
@@ -1411,17 +1506,59 @@
         // Section navigation smooth scrolling and active state
         const sectionLinks = document.querySelectorAll('.section-nav a');
         const sections = document.querySelectorAll('.tech-section');
+        const mobileDropdown = document.querySelector('.mobile-section-dropdown');
+        const dropdownToggle = document.getElementById('section-dropdown-toggle');
+        const currentSectionSpan = document.getElementById('current-section');
+        const mobileDropdownLinks = document.querySelectorAll('.mobile-section-dropdown-content a');
         
+        // Handle all section navigation clicks (desktop and mobile)
+        function handleSectionClick(link) {
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Close mobile dropdown if open
+                if (mobileDropdown) {
+                    mobileDropdown.classList.remove('active');
+                }
+                
+                // Update current section text in mobile dropdown
+                if (currentSectionSpan) {
+                    currentSectionSpan.textContent = link.textContent;
+                }
+            }
+        }
+        
+        // Desktop section links
         sectionLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                handleSectionClick(this);
             });
+        });
+        
+        // Mobile dropdown links
+        mobileDropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleSectionClick(this);
+            });
+        });
+        
+        // Mobile dropdown toggle
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function() {
+                mobileDropdown.classList.toggle('active');
+            });
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileDropdown && !mobileDropdown.contains(e.target)) {
+                mobileDropdown.classList.remove('active');
+            }
         });
         
         // Update active state on scroll
@@ -1435,10 +1572,22 @@
                 }
             });
             
+            // Update desktop links
             sectionLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').substring(1) === current) {
                     link.classList.add('active');
+                }
+            });
+            
+            // Update mobile dropdown links and current section text
+            mobileDropdownLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                    if (currentSectionSpan) {
+                        currentSectionSpan.textContent = link.textContent;
+                    }
                 }
             });
         });

@@ -180,6 +180,20 @@
         .mobile-nav-menu a:hover {
             color: #ff6b35;
         }
+        
+        .mobile-nav-menu .contact-btn {
+            background: #ff6b35;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            margin: 10px 20px;
+            padding: 12px 24px;
+        }
+        
+        .mobile-nav-menu .contact-btn:hover {
+            background: #e55a2b;
+            color: white;
+        }
 
         @media (max-width: 768px) {
             .nav-menu {
@@ -742,14 +756,9 @@
                     <a href="sustainability.html">Sustainability</a>
                     <a href="technical.html">Technical</a>
                     <a href="about.html">About</a>
-                    <a href="contact.html">Contact Us</a>
+                    <a href="contact.html" class="contact-btn">Contact Us</a>
                 </div>
             </nav>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
