@@ -876,8 +876,6 @@
 
         // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Basic form validation
             const requiredFields = ['firstName', 'lastName', 'email', 'projectType', 'message'];
             let isValid = true;
@@ -892,30 +890,35 @@
                 }
             });
             
-            if (isValid) {
-                const formData = new FormData(this);
-                
-                // Track form submission in GTM
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    'event': 'form_submission',
-                    'form_name': 'drainage_contact_form',
-                    'form_type': 'project_enquiry',
-                    'business_area': 'drainage',
-                    'project_type': formData.get('projectType') || 'not_specified',
-                    'company': formData.get('company') || 'not_provided',
-                    'budget_range': formData.get('budget') || 'not_specified',
-                    'project_timeline': formData.get('timeline') || 'not_specified',
-                    'page_location': window.location.href,
-                    'page_title': document.title
-                });
-                
-                // In a real implementation, this would submit to a server
-                alert('Thank you for your inquiry! We will contact you within 24 hours to discuss your project requirements.');
-                this.reset();
-            } else {
+            if (!isValid) {
+                e.preventDefault();
                 alert('Please fill in all required fields.');
+                return;
             }
+            
+            // Track form submission in GTM
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'form_submission',
+                'form_name': 'drainage_contact_form',
+                'form_type': 'project_enquiry',
+                'business_area': 'drainage',
+                'project_type': new FormData(this).get('projectType') || 'not_specified',
+                'company': new FormData(this).get('company') || 'not_provided',
+                'budget_range': new FormData(this).get('budget') || 'not_specified',
+                'project_timeline': new FormData(this).get('timeline') || 'not_specified',
+                'page_location': window.location.href,
+                'page_title': document.title
+            });
+            
+            // Track successful form completion
+            window.dataLayer.push({
+                'event': 'conversion',
+                'conversion_type': 'drainage_contact_form_completed',
+                'value': 1
+            });
+            
+            // Allow form to submit to Netlify naturally
         });
     </script>
 </body>
