@@ -918,7 +918,13 @@
                 'value': 1
             });
             
-            // Allow form to submit to Netlify naturally
+            // Prevent immediate submission to allow GTM tracking to complete
+            e.preventDefault();
+            
+            // Submit form after short delay to ensure Netlify captures the data
+            setTimeout(() => {
+                this.submit();
+            }, 150);
         });
     </script>
 </body>
