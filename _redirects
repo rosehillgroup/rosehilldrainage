@@ -1,6 +1,14 @@
-# Netlify Redirects Configuration
+# Netlify Redirects Configuration for Rosehill Drainage
+# Redirects from rosehilldrainage.com to drainage.rosehill.group
+
+# Force old domain to new subdomain
+https://rosehilldrainage.com/* https://drainage.rosehill.group/:splat 301!
+http://rosehilldrainage.com/* https://drainage.rosehill.group/:splat 301!
+https://www.rosehilldrainage.com/* https://drainage.rosehill.group/:splat 301!
+http://www.rosehilldrainage.com/* https://drainage.rosehill.group/:splat 301!
 
 # Force HTTPS
+http://drainage.rosehill.group/* https://drainage.rosehill.group/:splat 301!
 http://rosehilldrainage.netlify.app/* https://rosehilldrainage.netlify.app/:splat 301!
 
 # Clean URLs - redirect to canonical .html version
