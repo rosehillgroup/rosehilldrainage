@@ -714,7 +714,29 @@
                                 <label for="message">Project Details *</label>
                                 <textarea id="message" name="message" placeholder="Please describe your project requirements, site conditions, and any specific challenges..." required></textarea>
                             </div>
-                            
+
+                            <!-- Geolocation Hidden Fields -->
+                            <!-- Edge geo -->
+                            <input type="hidden" name="geo_country" id="geo_country">
+                            <input type="hidden" name="geo_region" id="geo_region">
+                            <input type="hidden" name="geo_city" id="geo_city">
+                            <input type="hidden" name="geo_lat" id="geo_lat">
+                            <input type="hidden" name="geo_lon" id="geo_lon">
+                            <input type="hidden" name="geo_tz" id="geo_tz">
+
+                            <!-- Optional precise GPS (only if user consents) -->
+                            <input type="hidden" name="gps_lat" id="gps_lat">
+                            <input type="hidden" name="gps_lon" id="gps_lon">
+
+                            <!-- Journey tracking -->
+                            <input type="hidden" name="page_url" id="page_url">
+                            <input type="hidden" name="referrer" id="referrer">
+                            <input type="hidden" name="utm_source" id="utm_source">
+                            <input type="hidden" name="utm_medium" id="utm_medium">
+                            <input type="hidden" name="utm_campaign" id="utm_campaign">
+                            <input type="hidden" name="utm_term" id="utm_term">
+                            <input type="hidden" name="utm_content" id="utm_content">
+
                             <button type="submit" class="submit-btn">Get Your Quote</button>
                         </form>
                     </div>
@@ -926,6 +948,62 @@
                 this.submit();
             }, 150);
         });
+    </script>
+
+    <!-- Geolocation and Journey Tracking Script -->
+    <script>
+    (function () {
+        // 1) Fill URL & referrer
+        const pageUrlField = document.getElementById('page_url');
+        const referrerField = document.getElementById('referrer');
+        if (pageUrlField) pageUrlField.value = location.href;
+        if (referrerField) referrerField.value = document.referrer || '';
+
+        // 2) Parse UTM parameters
+        const p = new URLSearchParams(location.search);
+        const utm = k => p.get(k) || '';
+        ['source','medium','campaign','term','content'].forEach(k => {
+            const el = document.getElementById('utm_'+k);
+            if (el) el.value = utm('utm_'+k);
+        });
+
+        // 3) Read edge geo cookie
+        const m = document.cookie.match(/(?:^|;\s*)nl_geo=([^;]+)/);
+        if (m) {
+            try {
+                const geo = JSON.parse(decodeURIComponent(m[1]));
+                const setGeoField = (id, value) => {
+                    const field = document.getElementById(id);
+                    if (field) field.value = value || '';
+                };
+
+                setGeoField('geo_country', geo.country);
+                setGeoField('geo_region', geo.region);
+                setGeoField('geo_city', geo.city);
+                setGeoField('geo_lat', geo.latitude ? String(geo.latitude) : '');
+                setGeoField('geo_lon', geo.longitude ? String(geo.longitude) : '');
+                setGeoField('geo_tz', geo.timezone);
+            } catch (e) {
+                console.log('Error parsing geo cookie:', e);
+            }
+        }
+
+        // 4) Optional precise GPS with explicit consent
+        // Hook this up to a checkbox if you decide to offer it.
+        const wantGPS = false; // Set to true or connect to a user consent checkbox
+        if (wantGPS && 'geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    const gpsLatField = document.getElementById('gps_lat');
+                    const gpsLonField = document.getElementById('gps_lon');
+                    if (gpsLatField) gpsLatField.value = String(pos.coords.latitude);
+                    if (gpsLonField) gpsLonField.value = String(pos.coords.longitude);
+                },
+                () => {}, // ignore errors, keep coarse geo
+                { enableHighAccuracy: false, maximumAge: 60000, timeout: 4000 }
+            );
+        }
+    })();
     </script>
 </body>
 </html>

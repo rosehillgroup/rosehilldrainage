@@ -8,6 +8,10 @@
 [build.environment]
   # No environment variables needed
 
+[[edge_functions]]
+  path = "/*"
+  function = "geo-cookie"
+
 [[headers]]
   # Apply security headers to all pages
   for = "/*"
