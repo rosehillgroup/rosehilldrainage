@@ -11,14 +11,28 @@ http://www.rosehilldrainage.com/* https://drainage.rosehill.group/:splat 301!
 http://drainage.rosehill.group/* https://drainage.rosehill.group/:splat 301!
 http://rosehilldrainage.netlify.app/* https://rosehilldrainage.netlify.app/:splat 301!
 
-# Clean URLs - redirect to canonical .html version
-/home /index.html 301!
-/about /about.html 301!
-/solutions /solutions.html 301!
-/contact /contact.html 301!
-/technical /technical.html 301!
-/sustainability /sustainability.html 301!
-/case-studies /case-studies.html 301!
+# Clean URLs - remove .html extension (redirect .html to clean)
+/about.html /about 301
+/solutions.html /solutions 301
+/contact.html /contact 301
+/technical.html /technical 301
+/sustainability.html /sustainability 301
+/case-studies.html /case-studies 301
+/thank-you.html /thank-you 301
+/grip-drain.html /grip-drain 301
+
+# Serve HTML files without extension
+/about /about.html 200
+/solutions /solutions.html 200
+/contact /contact.html 200
+/technical /technical.html 200
+/sustainability /sustainability.html 200
+/case-studies /case-studies.html 200
+/thank-you /thank-you.html 200
+/grip-drain /grip-drain.html 200
+
+# Legacy clean URL redirects (for backwards compatibility)
+/home /index.html 301
 
 # Fallback for 404 errors
-/* /index.html 404
+/* /404.html 404
