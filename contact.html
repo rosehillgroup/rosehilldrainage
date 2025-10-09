@@ -1005,5 +1005,44 @@
         }
     })();
     </script>
+
+    <!-- GTM Click Tracking Script -->
+    <script>
+    (function() {
+        // Track clicks on phone and email links
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (!target) return;
+
+            // Track phone clicks
+            if (target.classList.contains('gtm-phone-click')) {
+                const eventData = {
+                    'event': target.getAttribute('data-event') || 'phone_click',
+                    'event_category': target.getAttribute('data-category') || 'contact',
+                    'event_label': target.getAttribute('data-label') || 'phone',
+                    'phone_number': target.getAttribute('href') ? target.getAttribute('href').replace('tel:', '') : '',
+                    'page_location': window.location.href
+                };
+
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push(eventData);
+            }
+
+            // Track email clicks
+            if (target.classList.contains('gtm-email-click')) {
+                const eventData = {
+                    'event': target.getAttribute('data-event') || 'email_click',
+                    'event_category': target.getAttribute('data-category') || 'contact',
+                    'event_label': target.getAttribute('data-label') || 'email',
+                    'email_address': target.getAttribute('href') ? target.getAttribute('href').replace('mailto:', '') : '',
+                    'page_location': window.location.href
+                };
+
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push(eventData);
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
