@@ -170,6 +170,27 @@
                     "@id": "https://drainage.rosehill.group/#organization"
                 },
                 "inLanguage": "en-GB"
+            },
+            {
+                "@type": "VideoObject",
+                "@id": "https://drainage.rosehill.group/#moreton-installation-video",
+                "name": "Moreton Drainage Installation and Testing",
+                "description": "Watch the complete installation process of Rosehill's modular drainage system at the Moreton project site, demonstrating rapid deployment capabilities and rigorous hydraulic performance testing under real operational conditions.",
+                "thumbnailUrl": "https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/thumbnails/thumbnail.jpg?time=&height=600",
+                "uploadDate": "2025-10-20",
+                "duration": "PT3M",
+                "contentUrl": "https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/iframe",
+                "embedUrl": "https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/iframe",
+                "publisher": {
+                    "@id": "https://drainage.rosehill.group/#organization"
+                },
+                "inLanguage": "en-GB",
+                "keywords": ["drainage installation", "modular drainage system", "infrastructure testing", "sustainable drainage", "Moreton project"],
+                "about": {
+                    "@type": "Thing",
+                    "name": "Drainage System Installation",
+                    "description": "Professional installation and testing of sustainable modular drainage systems"
+                }
             }
         ]
     }
@@ -1344,6 +1365,150 @@
                 object-fit: cover;
             }
         }
+
+        /* Video Section */
+        .video-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .video-section .section-title {
+            margin-bottom: 20px;
+        }
+
+        .video-section .section-subtitle {
+            margin-bottom: 50px;
+        }
+
+        .video-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Fallback for browsers without aspect-ratio support */
+        @supports not (aspect-ratio: 16/9) {
+            .video-container {
+                padding-top: 56.25%;
+            }
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-poster {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .video-poster:hover {
+            transform: scale(1.02);
+        }
+
+        .video-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 53, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+            z-index: 2;
+        }
+
+        .play-button-overlay:hover {
+            background: #e55a2b;
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        .play-button-overlay::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent white;
+            margin-left: 4px;
+        }
+
+        .video-description {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .video-description p {
+            color: #6c757d;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .video-description a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .video-description a:hover {
+            color: #e55a2b;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 60px 0;
+            }
+
+            .video-container {
+                border-radius: 8px;
+            }
+
+            .play-button-overlay {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button-overlay::after {
+                border-width: 10px 0 10px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1559,6 +1724,33 @@
                     </div>
                     <h3 class="benefit-title">Proven Durability</h3>
                     <p class="benefit-description">Resistant to chemicals, freeze-thaw cycles, and heavy loading with minimal maintenance requirements over decades of service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See It In Action Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-subtitle">Watch the Moreton installation and testing process — from rapid deployment to performance validation in real-world conditions</p>
+
+            <div class="video-wrapper">
+                <div class="video-container" id="video-container">
+                    <div class="video-poster" id="video-poster"
+                         style="background-image: url('https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/thumbnails/thumbnail.jpg?time=&height=600');"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Play Moreton installation and testing video">
+                        <img src="https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/thumbnails/thumbnail.jpg?time=&height=600"
+                             alt="Moreton drainage installation video preview"
+                             loading="lazy">
+                        <div class="play-button-overlay" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="video-description">
+                    <p>This video demonstrates the complete installation process at our Moreton project site, showcasing the modular system's ease of deployment and the rigorous testing protocols that validate hydraulic performance under real operational conditions.</p>
                 </div>
             </div>
         </div>
@@ -1941,7 +2133,60 @@
             }
         });
     </script>
-    
+
+    <!-- Video Click-to-Play Functionality -->
+    <script>
+        // Video player initialization with click-to-play
+        (function() {
+            const videoPoster = document.getElementById('video-poster');
+            const videoContainer = document.getElementById('video-container');
+
+            if (!videoPoster || !videoContainer) return;
+
+            // Function to load and play video
+            function loadVideo() {
+                // Create iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://customer-6za27o9kyfay7ieg.cloudflarestream.com/08352f465860456f8226593747957495/iframe?poster=https%3A%2F%2Fcustomer-6za27o9kyfay7ieg.cloudflarestream.com%2F08352f465860456f8226593747957495%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&autoplay=true';
+                iframe.setAttribute('loading', 'lazy');
+                iframe.setAttribute('allow', 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', 'true');
+                iframe.setAttribute('title', 'Moreton Installation and Testing Demonstration');
+                iframe.style.border = 'none';
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+
+                // Remove poster and add iframe
+                videoPoster.remove();
+                videoContainer.appendChild(iframe);
+
+                // Track video play event
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        'event': 'video_play',
+                        'video_title': 'Moreton Installation and Testing',
+                        'video_location': 'homepage',
+                        'business_area': 'drainage'
+                    });
+                }
+            }
+
+            // Click event listener
+            videoPoster.addEventListener('click', loadVideo);
+
+            // Keyboard accessibility (Enter or Space)
+            videoPoster.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    loadVideo();
+                }
+            });
+        })();
+    </script>
+
     <!-- Cookie Consent Management -->
     <script>
         // GTM consent management
