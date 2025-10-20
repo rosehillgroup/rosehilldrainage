@@ -30,12 +30,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Critical Image Preloading -->
+    <link rel="preload" as="image" href="drainage_hero.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="drainage_hero.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="drainage_hero.jpg" type="image/jpeg" fetchpriority="high">
     <link rel="preload" as="image" href="rosehill_drainage_logo.avif" type="image/avif">
     <link rel="preload" as="image" href="rosehill_drainage_logo.webp" type="image/webp">
     <link rel="preload" as="image" href="rosehill_drainage_logo.png" type="image/png">
-    <link rel="preload" as="image" href="trough-stacker-hero.avif" type="image/avif">
-    <link rel="preload" as="image" href="trough-stacker-hero.webp" type="image/webp">
-    <link rel="preload" as="image" href="trough-stacker-hero.jpg" type="image/jpeg">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -1562,7 +1562,7 @@
             <picture>
                 <source srcset="drainage_hero.avif" type="image/avif">
                 <source srcset="drainage_hero.webp" type="image/webp">
-                <img src="drainage_hero.jpg" alt="">
+                <img src="drainage_hero.jpg" alt="Rosehill Drainage System installation" width="2400" height="1600" loading="eager" fetchpriority="high">
             </picture>
         </div>
         <div class="hero-overlay"></div>
