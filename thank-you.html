@@ -13,6 +13,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
 
+    <!-- Critical Image Preloading -->
+    <link rel="preload" as="image" href="drainage_hero.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="drainage_hero.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="drainage_hero.jpg" type="image/jpeg" fetchpriority="high">
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -179,7 +184,7 @@
         <picture>
             <source srcset="drainage_hero.avif" type="image/avif">
             <source srcset="drainage_hero.webp" type="image/webp">
-            <img src="drainage_hero.jpg" alt="">
+            <img src="drainage_hero.jpg" alt="Rosehill Drainage System installation" width="2400" height="1600" loading="eager" fetchpriority="high">
         </picture>
     </div>
     <div class="body-overlay"></div>
