@@ -1,0 +1,25 @@
+{
+  "name": "drainage-i18n",
+  "version": "1.0.0",
+  "description": "Automated translation pipeline for Rosehill Drainage static website",
+  "type": "module",
+  "scripts": {
+    "translate": "node i18n/translate-netlify.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": [
+    "i18n",
+    "translation",
+    "static-site",
+    "multilingual",
+    "drainage"
+  ],
+  "author": "Rosehill Group",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

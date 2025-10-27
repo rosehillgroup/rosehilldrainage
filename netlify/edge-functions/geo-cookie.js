@@ -1,4 +1,29 @@
 export default async (request, context) => {
+  // Handle language-prefixed URLs (e.g., /fr/solutions.html → /solutions.html?lang=fr)
+  const url = new URL(request.url);
+  const languageMatch = url.pathname.match(/^\/(fr|de|es)\/(.*)/);
+
+  if (languageMatch) {
+    const [, lang, path] = languageMatch;
+
+    // Check if this is an HTML page request (no extension or .html extension)
+    const hasExtension = path.includes('.');
+    const isHtmlPage = !hasExtension || path.endsWith('.html');
+
+    if (isHtmlPage) {
+      // HTML pages: Rewrite to root file with language query param
+      const newUrl = new URL(`/${path}`, url.origin);
+      newUrl.searchParams.set('lang', lang);
+      return context.rewrite(newUrl);
+    } else {
+      // Assets (images, CSS, JS, etc.): Rewrite to root path without language param
+      // This serves /fr/logo.png from /logo.png
+      const newUrl = new URL(`/${path}`, url.origin);
+      return context.rewrite(newUrl);
+    }
+  }
+
+  // Original geo-cookie functionality for non-language paths
   // Netlify adds IP-derived geo on the request at the edge
   // @ts-ignore
   const g = context.geo || {};

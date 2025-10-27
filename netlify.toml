@@ -1,9 +1,9 @@
 [build]
-  # No build command needed for static site
-  command = ""
-  
-  # Publish directory (root of the repository)
-  publish = "."
+  # Build command for multi-language site
+  command = "npm install && npm run translate"
+
+  # Publish directory (dist contains translated versions)
+  publish = "dist"
 
 [build.environment]
   # No environment variables needed
