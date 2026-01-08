@@ -13,7 +13,9 @@ const CONFIG = {
   priorityPages: [
     'index.html', 'solutions.html', 'case-studies.html', 'sustainability.html',
     'technical.html', 'about.html', 'contact.html', 'grip-drain.html',
-    'grip-drain-flyer.html', 'thank-you.html', '404.html'
+    'grip-drain-flyer.html', 'thank-you.html', '404.html',
+    // Policy pages
+    'privacy-policy.html', 'terms-of-use.html', 'cookie-policy.html'
   ]
 };
 

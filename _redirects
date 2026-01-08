@@ -20,6 +20,9 @@ http://rosehilldrainage.netlify.app/* https://rosehilldrainage.netlify.app/:spla
 /case-studies.html /case-studies 301
 /thank-you.html /thank-you 301
 /grip-drain.html /grip-drain 301
+/privacy-policy.html /privacy-policy 301
+/terms-of-use.html /terms-of-use 301
+/cookie-policy.html /cookie-policy 301
 
 # Serve HTML files without extension
 /about /about.html 200
@@ -30,6 +33,9 @@ http://rosehilldrainage.netlify.app/* https://rosehilldrainage.netlify.app/:spla
 /case-studies /case-studies.html 200
 /thank-you /thank-you.html 200
 /grip-drain /grip-drain.html 200
+/privacy-policy /privacy-policy.html 200
+/terms-of-use /terms-of-use.html 200
+/cookie-policy /cookie-policy.html 200
 
 # Legacy clean URL redirects (for backwards compatibility)
 /home /index.html 301
