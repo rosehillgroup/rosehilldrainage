@@ -15,7 +15,13 @@ const CONFIG = {
     'technical.html', 'about.html', 'contact.html', 'grip-drain.html',
     'grip-drain-flyer.html', 'thank-you.html', '404.html',
     // Policy pages
-    'privacy-policy.html', 'terms-of-use.html', 'cookie-policy.html'
+    'privacy-policy.html', 'terms-of-use.html', 'cookie-policy.html',
+    // Case study pages
+    'case-studies/pembroke-rail-cutting.html',
+    'case-studies/national-highways-test-centre.html',
+    'case-studies/milton-keynes-cycle-path.html',
+    'case-studies/liverpool-newsham-park.html',
+    'case-studies/next-step-memorial-garden.html'
   ]
 };
 
@@ -679,6 +685,7 @@ async function main() {
     for (const lang of CONFIG.languages) {
       const translatedHTML = await processFile(sourcePath, lang);
       const targetPath = path.join(rootDir, lang, pageFile);
+      fs.mkdirSync(path.dirname(targetPath), { recursive: true });
       fs.writeFileSync(targetPath, translatedHTML);
 
       // Save cache with schema after each file
@@ -728,6 +735,7 @@ async function main() {
       console.log(`📄 Processing ${pageFile} for root (English)`);
       const englishHTML = await processFile(sourcePath, 'en');
       const rootPath = path.join(rootDir, pageFile);
+      fs.mkdirSync(path.dirname(rootPath), { recursive: true });
       fs.writeFileSync(rootPath, englishHTML);
       console.log(`✓ Copied English ${pageFile} to root`);
     }
