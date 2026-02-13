@@ -94,8 +94,8 @@ async function translate(text, targetLang) {
 /**
  * Process a single HTML file
  */
-async function processFile(sourceFile, targetLang) {
-  console.log(`📄 Processing ${path.basename(sourceFile)} for ${targetLang}`);
+async function processFile(sourceFile, targetLang, pageFile) {
+  console.log(`📄 Processing ${pageFile || path.basename(sourceFile)} for ${targetLang}`);
 
   // Reset page-level stats
   const pageStats = {
@@ -105,7 +105,7 @@ async function processFile(sourceFile, targetLang) {
 
   const html = fs.readFileSync(sourceFile, 'utf8');
   const $ = cheerio.load(html);
-  const currentPageName = path.basename(sourceFile);
+  const currentPageName = pageFile || path.basename(sourceFile);
 
   let translationCount = 0;
 
@@ -683,7 +683,7 @@ async function main() {
 
     // Process translations
     for (const lang of CONFIG.languages) {
-      const translatedHTML = await processFile(sourcePath, lang);
+      const translatedHTML = await processFile(sourcePath, lang, pageFile);
       const targetPath = path.join(rootDir, lang, pageFile);
       fs.mkdirSync(path.dirname(targetPath), { recursive: true });
       fs.writeFileSync(targetPath, translatedHTML);
@@ -733,7 +733,7 @@ async function main() {
 
     if (fs.existsSync(sourcePath)) {
       console.log(`📄 Processing ${pageFile} for root (English)`);
-      const englishHTML = await processFile(sourcePath, 'en');
+      const englishHTML = await processFile(sourcePath, 'en', pageFile);
       const rootPath = path.join(rootDir, pageFile);
       fs.mkdirSync(path.dirname(rootPath), { recursive: true });
       fs.writeFileSync(rootPath, englishHTML);
