@@ -11,7 +11,8 @@ const __dirname = path.dirname(__filename);
 const CONFIG = {
   languages: ['fr', 'de', 'es'],
   priorityPages: [
-    'index.html', 'solutions.html', 'case-studies.html', 'sustainability.html',
+    'index.html', 'solutions.html', 'trough-stacker.html', 'drainage-mats.html',
+    'case-studies.html', 'sustainability.html',
     'technical.html', 'about.html', 'contact.html', 'grip-drain.html',
     'grip-drain-flyer.html', 'thank-you.html', '404.html',
     // Policy pages

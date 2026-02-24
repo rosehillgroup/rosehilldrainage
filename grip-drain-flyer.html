@@ -22,6 +22,24 @@
             background: white;
         }
 
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            transition: top 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         /* Print Styles */
         @media print {
             body { 
@@ -504,8 +522,10 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <button class="print-button no-print" onclick="window.print()">Print Flyer</button>
 
+    <main id="main-content">
     <div class="flyer-container">
         <!-- Page 1: Front Page -->
         <div class="page page-1">
@@ -735,5 +755,6 @@
             </div>
         </div>
     </div>
+    </main>
 </body>
 </html>

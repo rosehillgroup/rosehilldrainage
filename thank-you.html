@@ -14,9 +14,7 @@
     <link rel="manifest" href="favicon_io/site.webmanifest">
 
     <!-- Critical Image Preloading -->
-    <link rel="preload" as="image" href="drainage_hero.avif" type="image/avif" fetchpriority="high">
     <link rel="preload" as="image" href="drainage_hero.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="drainage_hero.jpg" type="image/jpeg" fetchpriority="high">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -41,6 +39,24 @@
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            transition: top 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* Base image layer - filtered and prepped for colorizing */
@@ -179,6 +195,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-N87GQD3Z"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="body-background">
         <picture>
@@ -189,18 +206,20 @@
     </div>
     <div class="body-overlay"></div>
 
+    <main id="main-content">
     <div class="thank-you-container">
         <div class="success-icon">✓</div>
         <h1>Thank You!</h1>
         <p>Your project inquiry has been successfully submitted. Our drainage specialists will review your requirements and respond within 24 hours.</p>
-        
+
         <div class="contact-info">
             <h3>Need immediate assistance?</h3>
             <p><strong>Phone:</strong> +44 (0) 1422 839 456</p>
             <p><strong>Email:</strong> info@rosehill.group</p>
         </div>
-        
+
         <a href="index.html" class="btn-home">Return to Homepage</a>
     </div>
+    </main>
 </body>
 </html>

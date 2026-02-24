@@ -48,6 +48,24 @@
             line-height: 1.6;
         }
 
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            transition: top 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         /* Header Styles */
         .header {
             background: linear-gradient(135deg, #1a365d, #2d4a71);
@@ -127,9 +145,9 @@
             margin-left: 10px;
         }
 
-        .contact-btn:hover {
-            background: #e55a2b !important;
-            color: white !important;
+        .nav-menu .contact-btn:hover {
+            background: #e55a2b;
+            color: white;
         }
 
         /* Mobile Navigation */
@@ -761,6 +779,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N87GQD3Z"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <div class="header-container">
@@ -773,7 +792,7 @@
     </picture>
                 </a>
             </div>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul class="nav-menu">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../solutions.html">Solutions</a></li>
@@ -783,7 +802,7 @@
                     <li><a href="../about.html">About</a></li>
                     <li><a href="../contact.html" class="contact-btn">Contact Us</a></li>
                 </ul>
-                <button class="mobile-menu-toggle" id="mobile-toggle">
+                <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -802,7 +821,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main">
+    <main id="main-content" class="main">
         <!-- Hero -->
         <div class="case-study-hero">
             <div class="case-study-hero-content">
@@ -992,11 +1011,8 @@
                 <div class="footer-section">
                     <h3>Our Solutions</h3>
                     <ul>
-                        <li><a href="../solutions.html#trough-stacker">Trough & Stacker System</a></li>
-                        <li><a href="../solutions.html#drainage-mats">Drainage Mats</a></li>
-                        <li><a href="../solutions.html">Railway Drainage</a></li>
-                        <li><a href="../solutions.html">Highway Drainage</a></li>
-                        <li><a href="../solutions.html">Civil Engineering</a></li>
+                        <li><a href="../trough-stacker.html">Trough & Stacker System</a></li>
+                        <li><a href="../drainage-mats.html">Drainage Mats</a></li>
                     </ul>
                 </div>
 
@@ -1024,7 +1040,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2025 Rosehill Drainage, A Division of <a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a>. All rights reserved. | Engineered for performance, designed for sustainability.</p>
+                <p>© 2026 Rosehill Drainage, A Division of <a href="https://rosehill.group/" style="color: #ff6b35; text-decoration: underline;">Rosehill Group</a>. All rights reserved. | Engineered for performance, designed for sustainability.</p>
             </div>
         </div>
     </footer>
@@ -1037,6 +1053,7 @@
         mobileToggle.addEventListener('click', function() {
             mobileToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', mobileToggle.classList.contains('active'));
         });
 
         // Close mobile menu when clicking on a link

@@ -102,6 +102,24 @@
             line-height: 1.6;
         }
 
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            transition: top 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         /* Header Styles */
         .header {
             background: linear-gradient(135deg, #1a365d, #2d4a71);
@@ -688,6 +706,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-N87GQD3Z"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header -->
     <header class="header">
@@ -697,11 +716,10 @@
                     <img src="rosehill_drainage_logo.png" alt="Rosehill Drainage" width="183" height="60" loading="eager">
                 </a>
             </div>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="grip-drain.html">Grip Drain</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -714,6 +732,7 @@
         </div>
     </header>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -959,6 +978,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -974,9 +995,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
-                    <a href="solutions.html">Trough & Stacker System</a>
-                    <a href="solutions.html#drainage-mats">Drainage Mats</a>
-                    <a href="grip-drain.html">RDS Grip Drain</a>
+                    <a href="trough-stacker.html">Trough & Stacker System</a>
+                    <a href="drainage-mats.html">Drainage Mats</a>
                     <a href="about.html">About Us</a>
                 </div>
                 <div class="footer-section">
@@ -995,7 +1015,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Rosehill Drainage. All rights reserved. | Part of the Rosehill Group</p>
+                <p>&copy; 2026 Rosehill Drainage. All rights reserved. | Part of the Rosehill Group</p>
             </div>
         </div>
     </footer>
